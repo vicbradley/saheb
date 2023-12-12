@@ -30,8 +30,8 @@ const Products = () => {
     return <Loading />;
   }
 
-  if (products.length == 0) {
-    return <p>There are no producs</p>;
+  if (products.length < 1) {
+    return <p>Belum ada produk yang ditambahkan</p>;
   }
 
   return (

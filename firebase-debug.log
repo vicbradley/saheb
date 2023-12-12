@@ -1,0 +1,1778 @@
+[debug] [2023-12-12T11:08:16.932Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T11:08:16.936Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T11:08:16.937Z] CLI Version:   13.0.1
+[debug] [2023-12-12T11:08:16.937Z] Platform:      win32
+[debug] [2023-12-12T11:08:16.938Z] Node Version:  v18.12.1
+[debug] [2023-12-12T11:08:16.939Z] Time:          Tue Dec 12 2023 19:08:16 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T11:08:16.939Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T11:08:17.077Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T11:08:17.078Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T11:08:17.078Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T11:08:17.081Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T11:08:17.082Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T11:08:17.082Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T11:08:18.392Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T11:08:18.393Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T11:08:18.395Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T11:08:19.127Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T11:08:19.128Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T11:08:28.266Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T11:08:29.261Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T11:08:29.262Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T11:08:29.262Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T11:08:30.695Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T11:08:30.695Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+
+[info] ╰── 💚 Support daisyUI project: https://opencollective.com/daisyui
+
+
+[info] (node:2748) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+[info] 
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/9) ...
+
+[info]    Generating static pages (2/9) 
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/_not-found". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/chat". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]    Generating static pages (4/9) 
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]    Generating static pages (6/9) 
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/products". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/consult". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/store-register". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12119)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]  ✓ Generating static pages (9/9) 
+
+[info] 
+
+[info] > Export encountered errors on following paths:
+	/_not-found
+	/chat/page: /chat
+	/consult/page: /consult
+	/page: /
+	/products/page: /products
+	/store-register/page: /store-register
+
+[debug] [2023-12-12T11:09:10.837Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-12-12T11:15:32.232Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T11:15:32.237Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T11:15:32.238Z] CLI Version:   13.0.1
+[debug] [2023-12-12T11:15:32.238Z] Platform:      win32
+[debug] [2023-12-12T11:15:32.238Z] Node Version:  v18.12.1
+[debug] [2023-12-12T11:15:32.240Z] Time:          Tue Dec 12 2023 19:15:32 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T11:15:32.240Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T11:15:32.373Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T11:15:32.374Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T11:15:32.374Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T11:15:32.377Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T11:15:32.378Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T11:15:32.378Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T11:15:47.385Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T11:15:47.389Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T11:15:47.389Z] CLI Version:   13.0.1
+[debug] [2023-12-12T11:15:47.390Z] Platform:      win32
+[debug] [2023-12-12T11:15:47.390Z] Node Version:  v18.12.1
+[debug] [2023-12-12T11:15:47.392Z] Time:          Tue Dec 12 2023 19:15:47 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T11:15:47.392Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T11:15:47.515Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T11:15:47.516Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T11:15:47.517Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T11:15:47.520Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T11:15:47.520Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T11:15:47.521Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T11:15:48.981Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T11:15:48.982Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T11:15:48.983Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T11:15:49.482Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T11:15:49.483Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T11:15:56.808Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T11:15:57.980Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T11:15:57.980Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T11:15:57.981Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T11:15:59.413Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T11:15:59.414Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+
+[info] ╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+
+[info] ├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+╰── 💚 Support daisyUI project: https://opencollective.com/daisyui
+
+
+[info] (node:2644) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/9) ...
+
+[info]    Generating static pages (2/9) 
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/_not-found". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/chat". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]    Generating static pages (4/9) 
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/products". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]    Generating static pages (6/9) 
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] 
+Error occurred prerendering page "/consult". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/store-register". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12117)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]  ✓ Generating static pages (9/9) 
+
+[info] 
+
+[info] > Export encountered errors on following paths:
+	/_not-found
+	/chat/page: /chat
+	/consult/page: /consult
+	/page: /
+	/products/page: /products
+	/store-register/page: /store-register
+
+[debug] [2023-12-12T11:16:30.235Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-12-12T11:42:50.159Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T11:42:50.162Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T11:42:50.163Z] CLI Version:   13.0.1
+[debug] [2023-12-12T11:42:50.163Z] Platform:      win32
+[debug] [2023-12-12T11:42:50.164Z] Node Version:  v18.12.1
+[debug] [2023-12-12T11:42:50.165Z] Time:          Tue Dec 12 2023 19:42:50 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T11:42:50.165Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T11:42:50.280Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T11:42:50.281Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T11:42:50.281Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T11:42:50.285Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T11:42:50.285Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T11:42:50.285Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T11:42:51.610Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T11:42:51.610Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T11:42:51.612Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T11:42:52.831Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T11:42:52.831Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T11:43:00.311Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T11:43:01.331Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T11:43:01.332Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T11:43:01.333Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T11:43:02.251Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T11:43:02.251Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+
+[info] ╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+
+[info] ╰── 💚 Support daisyUI project: https://opencollective.com/daisyui
+
+
+[info] (node:14716) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/9) ...
+
+[info]    Generating static pages (2/9) 
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/_not-found". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/chat". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] undefined
+undefined
+
+[info]    Generating static pages (4/9) 
+
+[info] undefined
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/store-register". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/consult". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] undefined
+   Generating static pages (6/9) 
+
+[info] undefined
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+Error occurred prerendering page "/products". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] undefined
+
+[info] ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] 
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: localStorage is not defined
+    at getUserInfo (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:12102)
+    at chat_ChatIcon (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\952.js:1:5219)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:46622)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]  ✓ Generating static pages (9/9) 
+
+[info] 
+
+[info] > Export encountered errors on following paths:
+	/_not-found
+	/chat/page: /chat
+	/consult/page: /consult
+	/page: /
+	/products/page: /products
+	/store-register/page: /store-register
+
+[debug] [2023-12-12T11:43:35.631Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-12-12T12:19:05.388Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T12:19:05.391Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T12:19:05.391Z] CLI Version:   13.0.1
+[debug] [2023-12-12T12:19:05.392Z] Platform:      win32
+[debug] [2023-12-12T12:19:05.392Z] Node Version:  v18.12.1
+[debug] [2023-12-12T12:19:05.394Z] Time:          Tue Dec 12 2023 20:19:05 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T12:19:05.394Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T12:19:05.510Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T12:19:05.511Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T12:19:05.511Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T12:19:05.513Z] > refreshing access token with scopes: []
+[debug] [2023-12-12T12:19:05.516Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-12-12T12:19:05.517Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-12-12T12:19:05.921Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-12-12T12:19:05.922Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-12-12T12:19:05.983Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T12:19:05.983Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T12:19:05.983Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:19:07.441Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T12:19:07.441Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:19:07.443Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T12:19:08.258Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T12:19:08.258Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T12:19:15.617Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T12:19:16.632Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T12:19:16.633Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T12:19:16.633Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T12:19:17.885Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T12:19:17.885Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+
+[info] ╰── ⭐️ Star daisyUI project on GitHub: https://github.com/saadeghi/daisyui
+
+
+[info] (node:15696) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+[info] 
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info] 
+> Build error occurred
+
+[info] Error: Page "/[store]/dashboard" is missing "generateStaticParams()" so it cannot be used with "output: export" config.
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\build\index.js:969:59
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Span.traceAsyncFn (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\trace\trace.js:105:20)
+    at async Promise.all (index 4)
+    at async C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\build\index.js:862:17
+    at async Span.traceAsyncFn (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\trace\trace.js:105:20)
+    at async C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\build\index.js:801:124
+    at async Span.traceAsyncFn (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\trace\trace.js:105:20)
+    at async build (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\build\index.js:185:29)
+    at async main (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\bin\next:157:5)
+
+[debug] [2023-12-12T12:19:49.627Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-12-12T12:20:39.795Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T12:20:39.799Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T12:20:39.800Z] CLI Version:   13.0.1
+[debug] [2023-12-12T12:20:39.800Z] Platform:      win32
+[debug] [2023-12-12T12:20:39.801Z] Node Version:  v18.12.1
+[debug] [2023-12-12T12:20:39.802Z] Time:          Tue Dec 12 2023 20:20:39 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T12:20:39.802Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T12:20:39.917Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T12:20:39.917Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T12:20:39.918Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T12:20:39.921Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T12:20:39.921Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T12:20:39.922Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:20:41.348Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T12:20:41.349Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:20:41.351Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T12:20:41.956Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T12:20:41.957Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T12:20:49.730Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T12:20:50.659Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T12:20:50.659Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T12:20:50.660Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T12:20:52.091Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T12:20:52.091Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+
+[info] ╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+
+[info] ├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+╰── ⭐️ Star daisyUI project on GitHub: https://github.com/saadeghi/daisyui
+
+
+[info] (node:3644) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/9) ...
+
+[info]    Generating static pages (2/9) 
+
+[info]    Generating static pages (4/9) 
+
+[info]  ⚠ Entire page /products deopted into client-side rendering. https://nextjs.org/docs/messages/deopted-into-client-rendering /products
+
+[info]    Generating static pages (6/9) 
+
+[info] ReferenceError: alert is not defined
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4398)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info] 
+Error occurred prerendering page "/store-register". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: alert is not defined
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4398)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nv (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:55162)
+    at ng (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:54569)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52770)
+
+[info]  ✓ Generating static pages (9/9) 
+
+[info] 
+
+[info] > Export encountered errors on following paths:
+	/store-register/page: /store-register
+
+[debug] [2023-12-12T12:21:26.600Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-12-12T12:22:49.523Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T12:22:49.526Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T12:22:49.527Z] CLI Version:   13.0.1
+[debug] [2023-12-12T12:22:49.527Z] Platform:      win32
+[debug] [2023-12-12T12:22:49.527Z] Node Version:  v18.12.1
+[debug] [2023-12-12T12:22:49.529Z] Time:          Tue Dec 12 2023 20:22:49 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T12:22:49.529Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T12:22:49.642Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T12:22:49.642Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T12:22:49.643Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T12:22:49.646Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T12:22:49.646Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T12:22:49.647Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:22:51.090Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T12:22:51.091Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:22:51.093Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T12:22:51.594Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T12:22:51.595Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T12:22:58.544Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T12:22:59.478Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T12:22:59.478Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T12:22:59.479Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T12:23:00.911Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T12:23:00.911Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+
+[info] ╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+
+[info] ├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+╰── 💚 Support daisyUI project: https://opencollective.com/daisyui
+
+
+[info] (node:14788) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/9) ...
+
+[info]    Generating static pages (2/9) 
+
+[info]    Generating static pages (4/9) 
+
+[info]    Generating static pages (6/9) 
+
+[info]  ⚠ Entire page /products deopted into client-side rendering. https://nextjs.org/docs/messages/deopted-into-client-rendering /products
+
+[info] ReferenceError: location is not defined
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:26204
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27942
+    at t.startTransition (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:59:6499)
+    at push (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27929)
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4408)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+
+[info] 
+Error occurred prerendering page "/store-register". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: location is not defined
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:26204
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27942
+    at t.startTransition (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:59:6499)
+    at push (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27929)
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4408)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+
+[info]  ✓ Generating static pages (9/9) 
+
+[info] 
+
+[info] > Export encountered errors on following paths:
+	/store-register/page: /store-register
+
+[debug] [2023-12-12T12:23:31.629Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-12-12T12:33:03.297Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T12:33:03.299Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T12:33:03.299Z] CLI Version:   13.0.1
+[debug] [2023-12-12T12:33:03.299Z] Platform:      win32
+[debug] [2023-12-12T12:33:03.299Z] Node Version:  v18.12.1
+[debug] [2023-12-12T12:33:03.300Z] Time:          Tue Dec 12 2023 20:33:03 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T12:33:03.300Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T12:33:03.376Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T12:33:03.376Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T12:33:03.376Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T12:33:03.379Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T12:33:03.379Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T12:33:03.379Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:33:04.663Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T12:33:04.663Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:33:04.664Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T12:33:05.202Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T12:33:05.202Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T12:33:09.513Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T12:33:10.377Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T12:33:10.378Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T12:33:10.378Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T12:33:11.514Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T12:33:11.514Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+
+[info] ╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+
+[info] ╰── ⭐️ Star daisyUI project on GitHub: https://github.com/saadeghi/daisyui
+
+
+[info] (node:11664) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/9) ...
+
+[info]    Generating static pages (2/9) 
+
+[info]    Generating static pages (4/9) 
+
+[info]    Generating static pages (6/9) 
+
+[info]  ⚠ Entire page /products deopted into client-side rendering. https://nextjs.org/docs/messages/deopted-into-client-rendering /products
+
+[info] ReferenceError: location is not defined
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:26204
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27942
+    at t.startTransition (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:59:6499)
+    at push (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27929)
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4408)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+
+[info] 
+Error occurred prerendering page "/store-register". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: location is not defined
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:26204
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27942
+    at t.startTransition (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:59:6499)
+    at push (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27929)
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4408)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+
+[info]  ✓ Generating static pages (9/9) 
+
+[info] 
+> Export encountered errors on following paths:
+	/store-register/page: /store-register
+
+[debug] [2023-12-12T12:33:36.270Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-12-12T12:33:46.887Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T12:33:46.889Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\LENOVO\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-12-12T12:33:46.890Z] CLI Version:   13.0.1
+[debug] [2023-12-12T12:33:46.890Z] Platform:      win32
+[debug] [2023-12-12T12:33:46.890Z] Node Version:  v18.12.1
+[debug] [2023-12-12T12:33:46.891Z] Time:          Tue Dec 12 2023 20:33:46 GMT+0800 (Waktu Indonesia Tengah)
+[debug] [2023-12-12T12:33:46.891Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T12:33:46.964Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T12:33:46.965Z] > authorizing via signed-in user (vicbradley_21@kharisma.ac.id)
+[debug] [2023-12-12T12:33:46.965Z] [iam] checking project saheb-2d8c9 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T12:33:46.968Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions [none]
+[debug] [2023-12-12T12:33:46.968Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions x-goog-quota-user=projects/saheb-2d8c9
+[debug] [2023-12-12T12:33:46.968Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:33:48.170Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions 200
+[debug] [2023-12-12T12:33:48.170Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/saheb-2d8c9:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T12:33:48.171Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 [none]
+[debug] [2023-12-12T12:33:48.569Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 200
+[debug] [2023-12-12T12:33:48.569Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/saheb-2d8c9 {"projectId":"saheb-2d8c9","projectNumber":"671891622766","displayName":"saheb","name":"projects/saheb-2d8c9","resources":{"hostingSite":"saheb-2d8c9","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_c304b4da-c90b-43be-b908-dede2e1a22ff"}
+[debug] [2023-12-12T12:33:52.924Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites pageToken=&pageSize=10
+[debug] [2023-12-12T12:33:53.692Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites 200
+[debug] [2023-12-12T12:33:53.692Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/saheb-2d8c9/sites {"sites":[{"name":"projects/saheb-2d8c9/sites/saheb-2d8c9","defaultUrl":"https://saheb-2d8c9.web.app","appId":"1:671891622766:web:ee49af62584241efe2cf7f","type":"DEFAULT_SITE"}]}
+[debug] [2023-12-12T12:33:53.692Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config [none]
+[debug] [2023-12-12T12:33:54.856Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config 200
+[debug] [2023-12-12T12:33:54.856Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:671891622766:web:ee49af62584241efe2cf7f/config {"projectId":"saheb-2d8c9","appId":"1:671891622766:web:ee49af62584241efe2cf7f","storageBucket":"saheb-2d8c9.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyB-Soa5wc9W0ujP9MB3WAATFkV9_bBIwwU","authDomain":"saheb-2d8c9.firebaseapp.com","messagingSenderId":"671891622766","measurementId":"G-QGBX7JS3SL"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info] 
+
+[info] ╭── 🌼 daisyUI 3.9.3 https://daisyui.com
+
+[info] │
+├── 2 themes are enabled. How to add more themes:
+│   https://daisyui.com/docs/themes
+│
+╰── ⭐️ Star daisyUI project on GitHub: https://github.com/saadeghi/daisyui
+
+[info] 
+
+[info] (node:788) [DEP_WEBPACK_MODULE_UPDATE_HASH] DeprecationWarning: Module.updateHash: Use new ChunkGraph API
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[info]  ⚠ Compiled with warnings
+
+
+[info] ./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\node-fetch\lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./app/components/Navbar.jsx
+
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+./app/cart/CartIcon.jsx
+81:6  Warning: React Hook useEffect has missing dependencies: 'setCartItemsCount', 'setCartProducts', 'setTotalPrice', and 'uid'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/cart/[id]/PaymentProcess.jsx
+71:6  Warning: React Hook useEffect has a missing dependency: 'cartRef'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+97:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+119:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+119:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/cart/[id]/Product.jsx
+51:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/ChatIcon.jsx
+63:6  Warning: React Hook useEffect has missing dependencies: 'profilePicture', 'setChatRoomsData', 'setIsChatRoomsDataReady', 'setUnreadMsgCount', 'uid', and 'username'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/chat/page.jsx
+35:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+35:17  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/ChatNavbar.jsx
+20:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+20:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./app/chat/[chatRoomId]/page.jsx
+180:6  Warning: React Hook useEffect has missing dependencies: 'chatRoomId' and 'getConsultantData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+201:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Navbar.jsx
+130:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/components/Product.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/consult/ConsultantList.jsx
+17:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/products/page.jsx
+63:6  Warning: React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+63:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/profile/[id]/page.jsx
+24:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./app/[store]/dashboard/Products.jsx
+27:6  Warning: React Hook useEffect has a missing dependency: 'store'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/[store]/page.jsx
+83:6  Warning: React Hook useEffect has missing dependencies: 'getProducts' and 'getStoreData'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+83:7  Warning: React Hook useEffect has a complex expression in the dependency array. Extract it to a separate variable so it can be statically checked.  react-hooks/exhaustive-deps
+
+./app/[store]/product/[productId]/page.jsx
+31:6  Warning: React Hook useEffect has a missing dependency: 'getData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+39:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+39:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/9) ...
+
+[info]    Generating static pages (2/9) 
+
+[info]    Generating static pages (4/9) 
+
+[info]    Generating static pages (6/9) 
+
+[info]  ⚠ Entire page /products deopted into client-side rendering. https://nextjs.org/docs/messages/deopted-into-client-rendering /products
+
+[info] ReferenceError: location is not defined
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:26204
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27942
+    at t.startTransition (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:59:6499)
+    at push (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27929)
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4408)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+
+[info] 
+Error occurred prerendering page "/store-register". Read more: https://nextjs.org/docs/messages/prerender-error
+ReferenceError: location is not defined
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:26204
+    at C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27942
+    at t.startTransition (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:59:6499)
+    at push (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\chunks\40.js:47:27929)
+    at __WEBPACK_DEFAULT_EXPORT__ (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\server\app\store-register\page.js:1:4408)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36421)
+    at ny (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:52524)
+    at nf (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:35987)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:36572)
+    at nh (C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:27:49347)
+
+[info]  ✓ Generating static pages (9/9) 
+
+[info] 
+
+[info] > Export encountered errors on following paths:
+	/store-register/page: /store-register
+
+[debug] [2023-12-12T12:34:21.363Z] Error: ENOENT: no such file or directory, open 'C:\Users\LENOVO\Desktop\TUGAS APLIKASI\saheb\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

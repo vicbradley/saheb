@@ -3,7 +3,7 @@ import { getUserInfo } from "@/app/logic/getUserInfo";
 import AddProductBtn from "./AddProductBtn";
 import Products from "./Products";
 
-const StoreDashboard = ({ params }) => {
+export default function StoreDashboard ({ params }) {
   if (getUserInfo().store !== params.store) return <h1>Error: Id tidak sesuai</h1>;
 
   return (
@@ -24,4 +24,4 @@ const StoreDashboard = ({ params }) => {
   );
 };
 
-export default StoreDashboard;
+// export default StoreDashboard;

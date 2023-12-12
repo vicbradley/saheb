@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import { getUserInfo } from "../logic/getUserInfo";
 import { useEffect, useState } from "react";
 import { db } from "@/src/firebase/config";

@@ -69,7 +69,7 @@ const Navbar = () => {
   };
 
   const test = () => {
-    console.log(regex.test(pathname));
+    console.log(getUserInfo());
   };
 
   const checkIfInChatRoom = () => {

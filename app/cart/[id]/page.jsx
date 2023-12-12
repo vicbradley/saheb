@@ -7,7 +7,7 @@ import EmptyPage from "@/app/components/EmptyPage";
 import { useEffect, useState } from "react";
 import PaymentProcess from "./PaymentProcess";
 
-const UserCart = ({ params }) => {
+export default function UserCart ({ params }) {
   const { cartProducts, totalPrice } = useCartContext();
   const cartId = params.id;
 
@@ -38,4 +38,4 @@ const UserCart = ({ params }) => {
   );
 };
 
-export default UserCart;
+// export default UserCart;

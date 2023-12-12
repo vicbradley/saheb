@@ -7,7 +7,7 @@ import Product from "../components/Product";
 import MiniSearch from "minisearch";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-const page = ({ params }) => {
+export default function Page({ params })  {
   const storeId = params.store;
   const [storeName, setStoreName] = useState(null);
   const [products, setProducts] = useState(null);
@@ -128,4 +128,4 @@ const page = ({ params }) => {
   }
 };
 
-export default page;
+// export default Page;

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Loading from "@/app/components/Loading";
 import AddToCartBtn from "@/app/components/AddToCartBtn";
 
-const ProductInStore = ({ params }) => {
+export default function ProductInStore ({ params }) {
   const { productId } = params;
   const [productData, setProductData] = useState(null);
   const [isDataReady, setIsDataReady] = useState(false);
@@ -56,4 +56,4 @@ const ProductInStore = ({ params }) => {
   }
 };
 
-export default ProductInStore;
+// export default ProductInStore;

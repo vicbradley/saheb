@@ -20,9 +20,9 @@ export const AuthContextProvider = ({ children }) => {
   
 
 
-  // const checkIsUserLogin = localStorage.getItem("auth") ? true : false;
+  const checkIsUserLogin = localStorage.getItem("auth") ? true : false;
 
-  const checkIsUserLogin = typeof window !== "undefined" ? window.localStorage.getItem('auth') : false
+  // const checkIsUserLogin = typeof window !== "undefined" ? window.localStorage.getItem('access') : false
 
   // const checkIsUserLogin = typeof window !== "undefined" ? window.localStorage.getItem('auth') : false;
 

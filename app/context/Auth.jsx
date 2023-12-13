@@ -5,30 +5,27 @@ import { createContext, useContext, useState, useEffect } from "react";
 const AuthContext = createContext({});
 
 export const AuthContextProvider = ({ children }) => {
-
-  // useEffect(() => {
-  //   const checkIsUserLogin = () => {
-  //     if (typeof window !== 'undefined') {
-  //       const item = localStorage.getItem('key')
-  //       return localStorage.getItem("auth") ? true : false;
-  //     }
-  //   }
-
-  //   setIsAuth(checkIsUserLogin)
-  // },[])
-
-  
-
-
-  const checkIsUserLogin = localStorage.getItem("auth") ? true : false;
-
   // const checkIsUserLogin = typeof window !== "undefined" ? window.localStorage.getItem('access') : false
 
   // const checkIsUserLogin = typeof window !== "undefined" ? window.localStorage.getItem('auth') : false;
 
   // const [isAuth, setIsAuth] = useState(false);
 
-  const [isAuth, setIsAuth] = useState(checkIsUserLogin ? true : false);
+  useEffect(() => {
+    const isInClient = () => {
+      return typeof window !== "undefined" ? true : false;
+    }
+
+    const checkIsUserLogin = isInClient() ? localStorage.getItem("auth") ? true : false : false;
+
+    setIsAuth(checkIsUserLogin)
+  },[])
+
+  
+
+  const [isAuth, setIsAuth] = useState(null);
+
+  // const [isAuth, setIsAuth] = useState(checkIsUserLogin ? true : false);
 
   const [isLocalStorageUpdated, setIsLocalStorageUpdated] = useState(0);
 

@@ -9,11 +9,12 @@ import { useEffect } from "react";
 
 const CartIcon = () => {
   const { push } = useRouter();
-  const { uid } = getUserInfo();
   const { isAuth, setIsAuth } = useAuthContext();
+  // const { uid } = getUserInfo();
   const { cartItemsCount, setCartItemsCount, totalPrice, setTotalPrice, setCartProducts, cartProducts } = useCartContext();
 
   const handleSignIn = async () => {
+    const { uid } = getUserInfo();
     if (await signInWithGoogle()) {
       setIsAuth(true);
       push(`/cart/${uid}`);
@@ -24,12 +25,14 @@ const CartIcon = () => {
   };
 
   const handleOnClick = () => {
+    const { uid } = getUserInfo();
     push(`/cart/${uid}`);
   };
 
   useEffect(() => {
     if (!isAuth) return;
 
+    const { uid } = getUserInfo();
     const cartRef = doc(db, "carts", uid);
 
     const unsub = onSnapshot(cartRef, async (document) => {

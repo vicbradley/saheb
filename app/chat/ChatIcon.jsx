@@ -11,12 +11,14 @@ import { useMessageContext } from "../context/Message";
 const ChatIcon = () => {
   const { setChatRoomsData, setIsChatRoomsDataReady, unreadMsgCount, setUnreadMsgCount } = useMessageContext();
 
-  const { uid, username, profilePicture } = getUserInfo();
+  
 
   const { isAuth, isLocalStorageUpdated } = useAuthContext();
 
   useEffect(() => {
     if (!isAuth) return;
+
+    const { uid, username, profilePicture } = getUserInfo();
 
     const q = query(collection(db, "chatrooms"), where("participants", "array-contains", { uid: uid, profilePicture, username }));
 

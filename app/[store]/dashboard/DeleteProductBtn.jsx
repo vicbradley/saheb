@@ -21,7 +21,6 @@ const DeleteProductBtn = (props) => {
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
-        {/* <Button color="red">Delete</Button> */}
         <Button colorScheme='red'>Delete</Button>
       </AlertDialog.Trigger>
       <AlertDialog.Content style={{ maxWidth: 450 }}>

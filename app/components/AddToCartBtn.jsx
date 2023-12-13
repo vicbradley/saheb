@@ -6,7 +6,6 @@ import { useToast } from "@chakra-ui/react";
 import SignInPopUp from "./SignInPopUp";
 
 const AddToCartBtn = (props) => {
-  // const { productId, productPrice } = props;
   const { id, name, price, stock, image, storeId, storeName } = props.productData;
   const { isAuth } = useAuthContext();
   const toast = useToast();

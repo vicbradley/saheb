@@ -23,5 +23,3 @@ export default function StoreDashboard ({ params }) {
     </>
   );
 };
-
-// export default StoreDashboard;

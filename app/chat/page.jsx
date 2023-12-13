@@ -38,7 +38,6 @@ const Chat = () => {
 
             <div className="w-[70%] -ml-2  lg:-ml-12 lg:w-[80%]">
               <p className="text-xl font-bold ">{data.username}</p>
-              {/* <p>{trimLongMessage(/chat.messages[chat.messages.length - 1].text)}</p> */}
               <p>{trimLongMessage(data.latestMsg)}</p>
             </div>
 

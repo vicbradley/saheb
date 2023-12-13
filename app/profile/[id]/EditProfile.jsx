@@ -1,7 +1,7 @@
 "use client";
 import { Dialog, Flex, Text, TextField } from "@radix-ui/themes";
-import { useToast, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Button, Progress, toast } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { useToast, Button, Progress } from "@chakra-ui/react";
+import { useState } from "react";
 import { useAuthContext } from "@/app/context/Auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, doc, updateDoc, query, where, getDocs } from "firebase/firestore";

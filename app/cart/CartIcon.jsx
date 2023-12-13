@@ -3,14 +3,13 @@ import { getUserInfo } from "../logic/getUserInfo";
 import { useAuthContext } from "../context/Auth";
 import { useCartContext } from "../context/Cart";
 import { signInWithGoogle } from "../auth/signInWithGoogle";
-import { doc, onSnapshot, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/src/firebase/config";
 import { useEffect } from "react";
 
 const CartIcon = () => {
   const { push } = useRouter();
   const { isAuth, setIsAuth } = useAuthContext();
-  // const { uid } = getUserInfo();
   const { cartItemsCount, setCartItemsCount, totalPrice, setTotalPrice, setCartProducts, cartProducts } = useCartContext();
 
   const handleSignIn = async () => {
@@ -46,32 +45,10 @@ const CartIcon = () => {
         setCartProducts([]);
         setTotalPrice(0);
         return;
-      };
-
-      console.log("cartIcon");
-
-      // const cartProductsFromDB = document.data().products;
-
-      // const temp = [];
-
-      // for (const object of cartProductsFromDB) {
-      //   const productRef = doc(db, "products", object.productId);
-      //   const productSnap = await getDoc(productRef);
-      //   const data = { ...productSnap.data(), id: productSnap.id, amount: 1 };
-      //   // console.log("haerin");
-      //   temp.push(data);
-      // }
-
-      // set state context cartProducts
-      // console.log(temp);
-      // setCartProducts(temp);
+      }
 
       setCartProducts(document.data().products);
 
-      console.log("awikwok");
-
-      // set state context totalPrice
-      // const sum = document.data().products.reduce((accumulator, current) => accumulator + parseInt(current.productPrice), 0);
       const sum = document.data().products.reduce((accumulator, current) => accumulator + parseInt(current.price), 0);
       setTotalPrice(sum);
 
@@ -101,7 +78,6 @@ const CartIcon = () => {
             <button className="btn btn-primary btn-block" onClick={isAuth ? handleOnClick : handleSignIn}>
               {isAuth ? "View cart" : "Sign In With Google"}
             </button>
-            <button onClick={() => console.log(cartProducts)}>test</button>
           </div>
         </div>
       </div>
@@ -110,5 +86,3 @@ const CartIcon = () => {
 };
 
 export default CartIcon;
-
-

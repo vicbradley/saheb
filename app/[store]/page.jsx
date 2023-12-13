@@ -127,5 +127,3 @@ export default function Page({ params })  {
     );
   }
 };
-
-// export default Page;

@@ -13,7 +13,6 @@ const Consult = () => {
     const q = query(collection(db, "users"), where("isAConsultant", "==", true));
 
     const querySnapshot = await getDocs(q);
-    // const temp = [];
 
     const tempConsultants = querySnapshot.docs.map((doc) => {
       const { username, profilePicture, consultantData } = doc.data();
@@ -22,30 +21,6 @@ const Consult = () => {
         consultantData: { ...consultantData, username, profilePicture },
       };
     });
-
-    // let tempConsultants =  querySnapshot.map((doc) => {
-    //   const consultantData = doc.data().consultantData;
-    //   temp.push({
-    //     id: doc.id,
-    //     consultantData: {
-    //       ...consultantData,
-    //       username: doc.data().username,
-    //       profilePicture: doc.data().profilePicture,
-    //     },
-    //   });
-    // });
-
-    // querySnapshot.forEach((doc) => {
-    //   const consultantData = doc.data().consultantData;
-    //   temp.push({
-    //     id: doc.id,
-    //     consultantData: {
-    //       ...consultantData,
-    //       username: doc.data().username,
-    //       profilePicture: doc.data().profilePicture,
-    //     },
-    //   });
-    // });
 
     setConsultants(tempConsultants);
     setIsDataReady(true);

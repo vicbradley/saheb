@@ -1,4 +1,4 @@
-import { query, collection, where, getDocs, QuerySnapshot } from "firebase/firestore";
+import { query, collection, where, getDocs } from "firebase/firestore";
 import { db } from "@/src/firebase/config";
 
 export const checkStore = async (uid) => {

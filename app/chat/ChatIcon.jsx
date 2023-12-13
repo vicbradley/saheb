@@ -1,17 +1,13 @@
 "use client";
 import { getUserInfo } from "../logic/getUserInfo";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { db } from "@/src/firebase/config";
-import { collection, getDocs, getDoc, doc, onSnapshot, query, where, collectionGroup } from "firebase/firestore";
-import Loading from "../components/Loading";
-import { useRouter } from "next/navigation";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { useAuthContext } from "../context/Auth";
 import { useMessageContext } from "../context/Message";
 
 const ChatIcon = () => {
   const { setChatRoomsData, setIsChatRoomsDataReady, unreadMsgCount, setUnreadMsgCount } = useMessageContext();
-
-  
 
   const { isAuth, isLocalStorageUpdated } = useAuthContext();
 

@@ -68,10 +68,6 @@ const Navbar = () => {
     }
   };
 
-  const test = () => {
-    console.log(getUserInfo());
-  };
-
   const checkIfInChatRoom = () => {
     const regex = /^\/chat\/.*/;
     return regex.test(pathname);
@@ -97,10 +93,6 @@ const Navbar = () => {
 
           <li>
             <Link href="/consult">Consult</Link>
-          </li>
-
-          <li>
-            <a>About</a>
           </li>
         </ul>
       </div>
@@ -154,10 +146,8 @@ const Navbar = () => {
               <Button onClick={signOutFromGoogle} _hover={{ bg: "baseBlue", color: "white" }} color="baseBlue">
                 Sign Out
               </Button>
-              {/* <a onClick={signOutFromGoogle}>Sign Out</a> */}
             </li>
             <li>
-              <a onClick={test}>Test</a>
             </li>
           </ul>
         </div>

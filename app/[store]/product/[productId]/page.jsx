@@ -55,5 +55,3 @@ export default function ProductInStore ({ params }) {
     );
   }
 };
-
-// export default ProductInStore;

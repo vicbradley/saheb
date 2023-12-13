@@ -32,8 +32,6 @@ const PaymentProcess = () => {
 
     const {products, productsBeingPaid} = cartSnap.data();
 
-    // a.concat(b.filter(itemB => !a.some(itemA => itemA.id === itemB.id)));
-
     const mergedArray = products.concat(productsBeingPaid.filter(paidProduct => !products.some(product => product.id !== paidProduct.id)));
 
     return updateDoc(cartRef, {
@@ -51,8 +49,6 @@ const PaymentProcess = () => {
       setPaidProductsState(paidProducts ? paidProducts : []);
 
       if (document.data().hasPaid) {
-        // const temp = document.data().productsBeingPaid;
-
         await updateProducts(productsBeingPaid);
 
         await updateDoc(cartRef, {
@@ -63,7 +59,6 @@ const PaymentProcess = () => {
         });
       }
 
-      console.log("masuk");
       setIsDataReady(true);
     });
 
@@ -75,10 +70,6 @@ const PaymentProcess = () => {
   return (
     <div>
       <div className="divider p-3 mb-3"></div>
-      {/* <p>PaymentProcess</p> */}
-      {/* <button onClick={() => console.log(paidProductsState)}>test</button>
-      <button onClick={() => console.log(productsBeingPaidState)}>2</button> */}
-
       {productsBeingPaidState.length > 0 && (
         <div className="w-[95%] mx-auto p-3 mb-3 bg-white border border-gray-200 rounded-lg shadow">
           <div className="flex justify-between items-center">

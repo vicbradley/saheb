@@ -33,7 +33,6 @@ const Product = (props) => {
   };
 
   const handleDelete = async () => {
-    // const obj = { productId: id, productPrice: price };
     const obj = { id, name, price, stock, image, amount, storeId, storeName  };
     const cartRef = doc(db, "carts", cartId);
 

@@ -34,11 +34,11 @@ const Form = ({formTitle, productData}) => {
     if (
       isEmpty(productName) ||
       isEmpty(productDesc) ||
-      isEmpty(productPrice.toString()) || // Convert productPrice to a string
-      isEmpty(productStock.toString()) || // Convert productStock to a string
+      isEmpty(productPrice.toString()) || 
+      isEmpty(productStock.toString()) || 
       isEmpty(productImage)
     ) {
-      return callToast("Error", "Isi Form Dengan Lengkap !", "error"); // Return true when there is an error
+      return callToast("Error", "Isi Form Dengan Lengkap !", "error");
     }
 
     if (productPrice == 0 || productStock == 0) {
@@ -65,7 +65,6 @@ const Form = ({formTitle, productData}) => {
     e.preventDefault();
 
     if (checkIsFormError()) {
-      // callToast("Error", "Isi Form Dengan Lengkap !", "error");
       return;
     }
 

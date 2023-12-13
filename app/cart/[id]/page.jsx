@@ -3,26 +3,18 @@ import Loading from "@/app/components/Loading";
 import Product from "./Product";
 import { useCartContext } from "@/app/context/Cart";
 import PaymentDetails from "./PaymentDetails";
-import EmptyPage from "@/app/components/EmptyPage";
-import { useEffect, useState } from "react";
 import PaymentProcess from "./PaymentProcess";
 
 export default function UserCart ({ params }) {
-  const { cartProducts, totalPrice } = useCartContext();
+  const { cartProducts } = useCartContext();
   const cartId = params.id;
 
   if (!cartProducts) {
     return <Loading />;
   }
-
-  // if (cartProducts.length < 1) return <EmptyPage text="Belum ada barang yang ditambahkan"/>
   
-  // if (cartProducts.length < 1) return <EmptyPage text="Belum ada barang yang ditambahkan"/>
-
   return (
     <>
-      <button onClick={() => console.log(cartProducts)}>test</button>
-      <button onClick={() => console.log(totalPrice)}>test</button>
       <p className="font-extrabold m-4 text-2xl">Cart Items</p>
       <div>
 
@@ -37,5 +29,3 @@ export default function UserCart ({ params }) {
     </>
   );
 };
-
-// export default UserCart;

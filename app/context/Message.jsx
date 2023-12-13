@@ -13,7 +13,6 @@ export const MessageContextProvider = ({ children }) => {
 
   const [isChatExpired, setIsChatExpired] = useState(false);
 
-  const [isChatroomExtended, setIsChatRoomExtended] = useState(false); 
 
 
   return <MessageContext.Provider value={{ chatRoomsData, setChatRoomsData, unreadMsgCount, setUnreadMsgCount, isChatRoomsDataReady, setIsChatRoomsDataReady, isChatExpired, setIsChatExpired }}>{children}</MessageContext.Provider>;

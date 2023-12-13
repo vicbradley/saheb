@@ -37,7 +37,6 @@ const PaymentDetails = (props) => {
 
   return (
     <>
-      {/* <p className="text-2xl m-4 font-extrabold">Order Summary</p> */}
       <div className="w-[95%] mx-auto p-3 mb-3 bg-white border border-gray-200 rounded-lg shadow flex justify-between items-center">
         <div>
           <p className="text-xl font-bold">Total Price</p>
@@ -47,11 +46,6 @@ const PaymentDetails = (props) => {
         <button className="btn bg-[#001a9d] text-white" onClick={openWA} disabled={cartProducts.length < 1 ? true : false}>
           Buy Now
         </button>
-
-        {/* <div className="divider"></div> */}
-
-        {/* <p className="text-xl font-bold">Payment Method</p>
-        <p className="text-xl">Whatsapp</p> */}
       </div>
     </>
   );

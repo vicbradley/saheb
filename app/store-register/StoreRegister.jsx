@@ -2,7 +2,6 @@
 import { db } from "@/src/firebase/config";
 import { collection, query, where, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-// import { useRouter } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { getUserInfo } from "../logic/getUserInfo";
 import isAlphanumeric from "validator/lib/isAlphanumeric";
@@ -18,10 +17,6 @@ const StoreRegister = () => {
 
   const router = useRouter();
   const { push } = router;
-
-  // if (typeof window !== "undefined") {
-  //   push = useRouter().push;
-  // }
 
   const toast = useToast();
 
@@ -97,7 +92,7 @@ const StoreRegister = () => {
       console.log(error);
     }
   };
-  
+
   useEffect(() => {
     if (!isAuth) {
       // alert("Login Terlebih dahulu")
@@ -111,9 +106,7 @@ const StoreRegister = () => {
         null
       );
     }
-  },[])
-
-
+  }, []);
 
   return (
     <div className="transition-opacity duration-500">

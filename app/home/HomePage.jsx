@@ -1,18 +1,16 @@
 "use client";
-import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import runningDog from "@/public/animation/runningDog.json";
 import sun from "@/public/animation/sun.json";
-import moment from "moment";
-moment().format();
+import consult from "@/public/animation/consult.json";
+import cart from "@/public/animation/cart.json";
+// import consultLottie from "@/public/animation/consultLottie.json";
 
 const HomePage = () => {
-  const { push } = useRouter();
-
   return (
     <div>
       <div className="flex flex-col lg:h-[80vh] lg:flex-row w-full bg-[#001a9d] justify-center items-center lg:rounded-xl p-5">
-        <p className="text-[#fbdcd9] font-extrabold text-center text-2xl lg:text-5xl">Semua Kebutuhan Hewan Peliharaan Anda</p>
+        <p className="text-white font-extrabold text-center text-2xl lg:text-5xl">Semua Kebutuhan Hewan Peliharaan Anda</p>
         <div className="w-[100%] flex flex-col ">
           <div className="w-[50%] h-[15vh] lg:h-[25vh] ">
             <Lottie animationData={sun} loop={true} />
@@ -21,36 +19,21 @@ const HomePage = () => {
         </div>
       </div>
 
+      <p className="w-[95vw] mx-auto text-[#001a9d] mt-6 mb-2 font-extrabold text-3xl">Apa Kebutuhan Anda ?</p>
 
-      <p className="text-[#001a9d] mt-6 font-extrabold text-2xl">Apa Kebutuhan Anda ?</p>
-
-      {/* <div className="bg-[#fbdcd9] flex p-4 mt-3 rounded-2xl h-[25vh]" onClick={() => push("/products")}>
-        <div className="w-[60%] text-[#001a9d]">
-          <p className="font-extrabold text-xl">Produk</p>
-          <p>Semua kebutuhan produk hewan peliharaan anda</p>
+      <div className="bg-[#001a9d] w-[95vw] flex h-[25vh] lg:h-[40vh] items-center mx-auto rounded-xl mb-2">
+        <div className="w-[100%] lg:w-[25%] h-[25vh] lg:h-[40vh] flex items-center">
+          <Lottie animationData={consult} loop={true} />
         </div>
-
-        <div className="w-[40%] flex items-center">
-          <img className="w-[150%]" src="https://firebasestorage.googleapis.com/v0/b/saheb-2d8c9.appspot.com/o/design%2FOpen%20Doodles%20-%20Nature.png?alt=media&token=7056ba22-d50f-4f14-b118-a619e2169915" alt="" />
-        </div>
+        <p className="w-full text-white font-extrabold text-center p-2 text-md lg:text-3xl">Konsultasi Dengan Dokter Hewan Secara Online</p>
       </div>
 
-      <div className="bg-[#fbdcd9] flex mt-6 p-4 rounded-t-2xl h-[25vh]" onClick={() => push("/consult")}>
-        <div className="w-[60%] text-[#001a9d]">
-          <p className="font-extrabold text-xl">Konsultasi</p>
-          <p>Konsultasikan hewan peliharaan anda!</p>
+      <div className="bg-[#001a9d] w-[95vw] flex h-[25vh] lg:h-[40vh] items-center mx-auto rounded-xl mb-2">
+        <div className="w-[100%] lg:w-[25%] h-[25vh] lg:h-[40vh] flex items-center">
+          <Lottie animationData={cart} loop={true} />
         </div>
-
-        <div className="w-[40%] flex items-center">
-          <img src="https://firebasestorage.googleapis.com/v0/b/saheb-2d8c9.appspot.com/o/design%2Fdoctor.png?alt=media&token=16b235ef-0803-4a47-82b7-9e69883cdc85" alt="" />
-        </div>
-      </div> */}
-
-      {/* <footer className="footer footer-center p-4 text-[#fbdcd9] bg-[#001a9d]">
-        <aside>
-          <p>Copyright © 2023 - All right reserved by IOD Team</p>
-        </aside>
-      </footer> */}
+        <p className="w-full text-white font-extrabold text-center p-2 text-md lg:text-3xl">Dapatkan Produk Terbaik untuk Hewan Peliharaan Anda</p>
+      </div>
     </div>
   );
 };

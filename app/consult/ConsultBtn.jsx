@@ -29,7 +29,7 @@ const ConsultBtn = (props) => {
       title,
       description,
       status,
-      duration: 5000,
+      duration: 3000,
       isClosable: true,
     });
   };
@@ -52,7 +52,7 @@ const ConsultBtn = (props) => {
       if (props.isInChatRoom) {
         const existChatRoomRef = doc(db, "chatrooms", props.chatRoomId);
         await updateDoc(existChatRoomRef, {
-          chatExpired: moment().add(5, "minutes")._d.toString(),
+          chatExpired: moment().add(30, "minutes")._d.toString(),
         });
 
         // setIsChatRoomExtended(true);
@@ -60,7 +60,10 @@ const ConsultBtn = (props) => {
 
         callToast("Success", "Sesi konsultasi diperpanjang", "success");
 
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+
         return;
       } else {
         const [currentUserData, participantData] = await Promise.all([getUserData(uid), getUserData(otherUserId)]);
@@ -70,7 +73,7 @@ const ConsultBtn = (props) => {
           messages: [],
           participants: [currentUserData, participantData],
           // chatExpired: moment().add(1, 'days')._d.toString()
-          chatExpired: moment().add(5, "minutes")._d.toString(),
+          chatExpired: moment().add(30, "minutes")._d.toString(),
         });
 
         callToast("Success", "Token yang anda masukkan benar silahkan berkonsultasi dengan dokter", "success");
@@ -151,7 +154,7 @@ const ConsultBtn = (props) => {
           Beli token
         </button>
       ) : (
-        <button className="text-white bg-[#001a9d] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" onClick={otherUserId !== uid ? openModal : () => ""}>
+        <button className="text-white sm:w-[30%] lg:w-auto bg-[#001a9d] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm lg:text-md px-3 lg:px-5 py-2.5 text-center" onClick={otherUserId !== uid ? openModal : () => ""}>
           Konsultasi
         </button>
       )}

@@ -25,7 +25,8 @@ const ConsultantList = (props) => {
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <span className="bg-blue-100 text-blue-800 text-md font-semibold p-2 rounded ">Rp {Intl.NumberFormat("id-ID").format(pricing)}</span>
+          <span className="bg-blue-100 text-blue-800 text-sm sm:text-md md:text-md lg:text-base font-semibold p-2 rounded">Rp {Intl.NumberFormat("id-ID").format(pricing)}</span>
+          
           {/* <ConsultBtn consultantData={{ consultantId: id, consultantUsername: username, pricing: pricing, consultantProfilePicture: profilePicture }} /> */}
           <ConsultBtn otherUserData={otherUserData} />
         </div>

@@ -7,7 +7,8 @@ const ChatNavbar = (props) => {
     <div className="navbar bg-[#f2f2f2] p-2 ">
       <div className="flex-1 items-center">
         <div className="ml-4 avatar">
-          <div className="w-16 rounded-full">
+          {/* <div className="w-16 rounded-full"> */}
+          <div className="w-14 rounded-full">
             <img src={otherUserProfilePicture} />
           </div>
         </div>

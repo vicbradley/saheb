@@ -11,7 +11,7 @@ const UploadImage = (props) => {
   const [fileUpload, setFileUpload] = useState(null);
   const [messageImage, setMessageImage] = useState(null);
   const [progressValue, setProgressValue] = useState(0);
-  const {uid, username} = getUserInfo();
+  const { uid, username } = getUserInfo();
 
   const uploadFile = async () => {
     if (!fileUpload) return;
@@ -67,7 +67,7 @@ const UploadImage = (props) => {
   };
 
   const handleSendImage = async () => {
-    if (messageImage === "") return;
+    if (!fileUpload) return;
 
     const now = new Date();
 
@@ -85,21 +85,18 @@ const UploadImage = (props) => {
       messages: arrayUnion(newMessageObj),
     });
 
-    setMessageImage("");
-  }
+    setMessageImage(null);
+    setFileUpload(null);
+    setProgressValue(0);
+  };
 
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        {/* <Button className="mr-4 lg:mr-0" disabled="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-paperclip" viewBox="0 0 16 16">
-              <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
-            </svg>
-        </Button> */}
         <button className="btn mr-4 lg:mr-0" disabled={props.isChatExpired ? true : false}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-paperclip" viewBox="0 0 16 16">
-              <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-paperclip" viewBox="0 0 16 16">
+            <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
+          </svg>
         </button>
       </Dialog.Trigger>
 
@@ -110,11 +107,11 @@ const UploadImage = (props) => {
           {/* Input File */}
           <label>
             <Text as="div" size="2" mb="1" weight="bold">
-              Gambar Produk
+              Pilih Gambar
             </Text>
             <div className="flex justify-between items-center">
               <input type="file" className="file-input file-input-bordered file-input-sm" onChange={(e) => setFileUpload(e.target.files[0])} />
-              <button className="ml-2 btn btn-sm bg-slate-800 text-base-300 hover:text-slate-800" onClick={uploadFile}>
+              <button className={`ml-2 btn btn-sm bg-slate-800 text-base-300  hover:text-slate-800 ${fileUpload ? "" : "cursor-not-allowed opacity-50"}`} onClick={uploadFile}>
                 upload
               </button>
             </div>
@@ -135,7 +132,11 @@ const UploadImage = (props) => {
             </Button>
           </Dialog.Close>
           <Dialog.Close>
-            <Button onClick={handleSendImage}>Send</Button>
+            <button className={`bg-[#edf2f7] font-semibold px-3 rounded ${messageImage ? "" : "cursor-not-allowed opacity-50"}`} disabled={!messageImage ? true : false} onClick={handleSendImage}>
+              Send
+            </button>
+            {/* <Button onClick={handleSendImage} disabled={true}>Send</Button> */}
+            {/* <Button>Send</Button> */}
           </Dialog.Close>
         </Flex>
       </Dialog.Content>

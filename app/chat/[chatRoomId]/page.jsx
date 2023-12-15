@@ -142,17 +142,23 @@ const Chatroom = ({ params }) => {
     <>
       <ChatNavbar otherUserData={otherUserData} changeChatExpiredState={changeChatExpiredState} />
 
-      <div className="flex-1 px-2 border h-[78vh] lg:h-[75vh] overflow-y-auto" ref={messageContainerRef}>
+      <div className="flex-1 px-2 border h-[80vh] lg:h-[76vh] overflow-y-auto" ref={messageContainerRef}>
         {messages.map((message) => (
           <div key={randomKey(message.createdAt)} className={`chat ${message.senderId === getUserInfo().uid ? "chat-end" : "chat-start"}`}>
             <div className="chat-bubble bg-base-300 text-slate-800 font-semibold mt-3 flex flex-col justify-center">
               {isImageLink(message.text) ? (
-                <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh] ">
+                // <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh] ">
+                //   <img
+                //     src={message.text}
+                //     alt="Chat Image"
+                //     className="w-[100%] h-[100%] mx-auto object-cover rounded"
+                //   />
+                // </div>
+                <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh]">
                   <img
                     src={message.text}
                     alt="Chat Image"
-                    className="w-[100%] h-[100%] mx-auto object-cover rounded"
-                    // style={{ maxWidth: "100vw", maxHeight: "100vh", objectFit: "fill" }}
+                    className="w-[100%] h-[100%] mx-auto object-contain rounded"
                   />
                 </div>
               ) : (

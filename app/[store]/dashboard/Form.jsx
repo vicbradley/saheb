@@ -17,7 +17,7 @@ const Form = ({formTitle, productData}) => {
   const [productPrice, setProductPrice] = useState(productData ? productData.price : 0);
   const [productStock, setProductStock] = useState(productData ? productData.stock : 0);
   const [productImage, setProductImage] = useState(productData ? productData.image : "");
-  const [fileUpload, setFileUpload] = useState(null);
+  const [fileUpload, setFileUpload] = useState("");
   const [progressValue, setProgressValue] = useState(0);
 
   const callToast = (title, description, status) => {
@@ -34,16 +34,20 @@ const Form = ({formTitle, productData}) => {
     if (
       isEmpty(productName) ||
       isEmpty(productDesc) ||
-      isEmpty(productPrice.toString()) || 
-      isEmpty(productStock.toString()) || 
-      isEmpty(productImage)
+      productPrice < 1 || 
+      productStock < 1 || 
+      isEmpty(productImage) ||
+      (!fileUpload && !productData) 
     ) {
-      return callToast("Error", "Isi Form Dengan Lengkap !", "error");
+      // return callToast("Error", "Isi Form Dengan Lengkap !", "error");
+      return true;
+    } else {
+      return false;
     }
 
-    if (productPrice == 0 || productStock == 0) {
-      return callToast("Error", "Harga dan Stock tidak bisa 0", "error");
-    }
+    // if (productPrice == 0 || productStock == 0) {
+    //   return callToast("Error", "Harga dan Stock tidak bisa 0", "error");
+    // }
   };
 
   const getStoreName = async () => {
@@ -231,7 +235,7 @@ const Form = ({formTitle, productData}) => {
             </Text>
             <div className="flex justify-between items-center">
               <input type="file" className="file-input file-input-bordered file-input-sm" onChange={(e) => setFileUpload(e.target.files[0])} />
-              <button className="ml-2 btn btn-sm bg-slate-800 text-base-300 hover:text-slate-800" onClick={uploadFile}>
+              <button className={`ml-2 btn btn-sm bg-slate-800 text-base-300  hover:text-slate-800 ${fileUpload ? "" : "cursor-not-allowed opacity-50"}`} onClick={uploadFile}>
                 upload
               </button>
             </div>
@@ -253,8 +257,12 @@ const Form = ({formTitle, productData}) => {
           </Dialog.Close>
 
           <Dialog.Close>
-            <Button onClick={productData ? updateProduct : addToDB}>Save</Button>
+            {/* <Button onClick={productData ? updateProduct : addToDB}>Save</Button> */}
+            <button className={`bg-[#edf2f7] font-semibold px-3 rounded ${checkIsFormError() && !productData ?  "cursor-not-allowed opacity-50" : ""}`} disabled={checkIsFormError() && !productData ? true : false} onClick={productData ? updateProduct : addToDB}>
+              Save
+            </button>
           </Dialog.Close>
+          <button onClick={() => console.log(checkIsFormError())}>test</button>
         </Flex>
       </Dialog.Content>
     </Dialog.Root>

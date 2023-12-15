@@ -4,7 +4,6 @@ import runningDog from "@/public/animation/runningDog.json";
 import sun from "@/public/animation/sun.json";
 import consult from "@/public/animation/consult.json";
 import cart from "@/public/animation/cart.json";
-// import consultLottie from "@/public/animation/consultLottie.json";
 
 const HomePage = () => {
   return (

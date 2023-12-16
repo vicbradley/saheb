@@ -15,6 +15,7 @@ const AddToCartBtn = (props) => {
     e.stopPropagation();
     const cartRef = doc(db, "carts", uid);
 
+    console.log({id, name, price, stock, image, storeId, storeName, amount: 1});
 
     await updateDoc(cartRef, {
      products: arrayUnion({id, name, price, stock, image, storeId, storeName, amount: 1}) 

@@ -4,7 +4,7 @@ const ChatNavbar = (props) => {
   const { otherUsername, otherUserProfilePicture, chatExpired } = props.otherUserData;
 
   return (
-    <div className="navbar bg-[#f2f2f2] p-2 ">
+    <div className="navbar bg-[#f2f2f2] p-2 sticky">
       <div className="flex-1 items-center">
         <div className="ml-4 avatar">
           {/* <div className="w-16 rounded-full"> */}

@@ -35,10 +35,7 @@ const Product = (props) => {
         </div>
         <div className="flex items-center justify-between">
         <span className="bg-blue-100 text-blue-800 text-sm sm:text-md md:text-md lg:text-base font-semibold p-2 rounded">Rp {Intl.NumberFormat("id-ID").format(price)}</span>
-
-          {/* <span className="bg-blue-100 text-blue-800 text-md font-semibold p-2 rounded ">Rp {Intl.NumberFormat("id-ID").format(price)}</span> */}
-          {/* <span className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white">Rp {Intl.NumberFormat("id-ID").format(price)}</span> */}
-          <AddToCartBtn productId={id} productPrice={price} storeId={storeId} productData={props.data} />
+          <AddToCartBtn productData={props.data} />
         </div>
       </div>
     </div>

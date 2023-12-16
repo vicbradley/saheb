@@ -16,7 +16,10 @@ export default function ProductInStore ({ params }) {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setProductData(docSnap.data());
+        setProductData({
+          ...docSnap.data(),
+          id: productId,
+        })
         setIsDataReady(true);
       } else {
         console.log("No such document!");
@@ -42,7 +45,8 @@ export default function ProductInStore ({ params }) {
           <h2 className="card-title text-2xl lg:text-3xl">{productData.name}</h2>
           <div className="card-actions justify-between items-center">
             <p className="text-xl font-semibold lg:text-2xl">Rp{Intl.NumberFormat("id-ID").format(productData.price)}</p>
-            <AddToCartBtn productId={productId} productData={productData} />
+            <AddToCartBtn productData={productData} />
+            <button onClick={() => console.log(productData)}>test</button>
           </div>
           <div>
             <p className="  mt-2">Stock : {productData.stock}</p>

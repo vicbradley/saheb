@@ -24,7 +24,7 @@ const HomePage = () => {
         <div className="w-[100%] lg:w-[25%] h-[25vh] lg:h-[40vh] flex items-center">
           <Lottie animationData={consult} loop={true} />
         </div>
-        <p className="w-full text-white font-extrabold text-center p-2 text-md lg:text-3xl">Konsultasi Dengan Dokter Hewan Secara Online</p>
+        <p className="w-full text-white font-extrabold text-center p-2 text-md lg:text-3xl">Konsultasi Dengan Dokter Hewan Kami Via Chat Selama 24 Jam</p>
       </div>
 
       <div className="bg-[#001a9d] w-[95vw] flex h-[25vh] lg:h-[40vh] items-center mx-auto rounded-xl mb-2">

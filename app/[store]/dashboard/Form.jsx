@@ -1,13 +1,12 @@
 "use client";
 import { useState } from "react";
 import { Dialog, Flex, Text, TextField } from "@radix-ui/themes";
-import { useToast, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from "@chakra-ui/react";
+import { useToast, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Progress, Button } from "@chakra-ui/react";
 import { getUserInfo } from "../../logic/getUserInfo";
 import { collection, addDoc, doc, updateDoc, getDoc } from "firebase/firestore";
 import { db, storage } from "@/src/firebase/config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import isEmpty from "validator/lib/isEmpty";
-import { Progress, Button } from "@chakra-ui/react";
 
 const Form = ({formTitle, productData}) => {
   const toast = useToast();
@@ -262,7 +261,6 @@ const Form = ({formTitle, productData}) => {
               Save
             </button>
           </Dialog.Close>
-          <button onClick={() => console.log(checkIsFormError())}>test</button>
         </Flex>
       </Dialog.Content>
     </Dialog.Root>

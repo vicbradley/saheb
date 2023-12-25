@@ -27,7 +27,7 @@ const Product = (props) => {
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{trimTitle(name)}</h5>
         <div className="flex items-center mt-2.5 mb-5">
           <div className="flex items-center space-x-1 rtl:space-x-reverse">
-            <a onClick={handleToStoreOnClick} className="text-[#001a9d]">
+            <a onClick={handleToStoreOnClick} className="text-[#001a9d] cursor-pointer">
               {storeName}
             </a>
           </div>

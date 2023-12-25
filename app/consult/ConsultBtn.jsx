@@ -72,8 +72,8 @@ const ConsultBtn = (props) => {
         const chatRoomRef = await addDoc(collection(db, "chatrooms"), {
           messages: [],
           participants: [currentUserData, participantData],
-          // chatExpired: moment().add(1, 'days')._d.toString()
-          chatExpired: moment().add(30, "minutes")._d.toString(),
+          chatExpired: moment().add(1, 'days')._d.toString()
+          // chatExpired: moment().add(30, "minutes")._d.toString(),
         });
 
         callToast("Success", "Token yang anda masukkan benar silahkan berkonsultasi dengan dokter", "success");
@@ -138,7 +138,7 @@ const ConsultBtn = (props) => {
   };
 
   if (!isAuth) {
-    return <SignInPopUp text="Konsultasi Sekarang" />;
+    return <SignInPopUp text="Konsultasi" />;
   }
 
   return (

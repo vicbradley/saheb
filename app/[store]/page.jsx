@@ -9,7 +9,6 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 export default function Page({ params }) {
   const storeId = params.store;
-  // const [storeName, setStoreName] = useState(null);
   const [storeInfo, setStoreInfo] = useState(null);
   const [products, setProducts] = useState(null);
   const [isDataReady, setIsDataReady] = useState(false);
@@ -36,8 +35,8 @@ export default function Page({ params }) {
         setStoreInfo({
           name,
           location,
-          profilePicture
-        })
+          profilePicture,
+        });
       } else {
         console.log("No such document!");
       }
@@ -67,7 +66,7 @@ export default function Page({ params }) {
 
     let miniSearch = new MiniSearch(miniSearchConfig);
 
-    miniSearch.addAll(data);
+    miniSearch.addAll(temp);
 
     let results = miniSearch.search(searchParams.get("query"));
 
@@ -108,11 +107,6 @@ export default function Page({ params }) {
           </div>
         </div>
 
-        {/* <div className="navbar bg-primary text-primary-content min-h-[25vh] px-10 rounded-md">
-          <button className="btn btn-ghost text-xl">daisyUI</button>
-        </div> */}
-
-        {/* <div className="bg-[white] rounded-t-[3rem]"> */}
         <div className="bg-[white] ">
           <form className="pt-12  px-3">
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
@@ -139,11 +133,15 @@ export default function Page({ params }) {
             </div>
           </form>
 
-          <div className="flex flex-wrap justify-around">
-            {products.map((product) => (
-              <Product data={product} key={product.id} />
-            ))}
-          </div>
+          {products.length < 1 ? (
+            <p className="w-[80%] h-[50vh] text-center mx-auto flex items-center justify-center text-[#001a9d] font-semibold text-lg">Produk tidak ditemukan, coba keyword lain...</p>
+          ) : (
+            <div className="flex flex-wrap justify-around">
+              {products.map((product) => (
+                <Product data={product} key={product.id} />
+              ))}
+            </div>
+          )}
         </div>
       </>
     );

@@ -52,7 +52,8 @@ const ConsultBtn = (props) => {
       if (props.isInChatRoom) {
         const existChatRoomRef = doc(db, "chatrooms", props.chatRoomId);
         await updateDoc(existChatRoomRef, {
-          chatExpired: moment().add(30, "minutes")._d.toString(),
+          // chatExpired: moment().add(30, "minutes")._d.toString(),
+          chatExpired: moment().add(1, 'days')._d.toString(),
         });
 
         // setIsChatRoomExtended(true);

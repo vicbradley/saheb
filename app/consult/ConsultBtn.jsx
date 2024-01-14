@@ -150,7 +150,7 @@ const ConsultBtn = (props) => {
             e.preventDefault();
             onOpen();
           }}
-          className="btn btn-md btn-accent text-base-100 ml-3 lg:ml-5"
+          className="btn btn-md bg-[#001a9d] text-base-100 ml-3 lg:ml-5"
         >
           Beli token
         </button>

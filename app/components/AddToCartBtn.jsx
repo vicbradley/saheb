@@ -30,6 +30,18 @@ const AddToCartBtn = (props) => {
     });
   };
 
+  const checkIsProductEligible = () => {
+    if (store === storeId) {
+      return false;
+    }
+
+    if (stock < 1) {
+      return false;
+    }
+
+    return true;
+  }
+
   if (!isAuth) {
     return <SignInPopUp text="Add To Cart" />;
   }
@@ -38,7 +50,7 @@ const AddToCartBtn = (props) => {
     <div>
       <button 
       onClick={handleAddToCart}
-      className="text-white  lg:w-auto bg-[#001a9d] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm lg:text-md px-3 lg:px-5 py-2.5 text-center" disabled={store === storeId ? true : false}>
+      className={`text-white  lg:w-auto bg-[#001a9d]  focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm lg:text-md px-3 lg:px-5 py-2.5 text-center ${!checkIsProductEligible() ? "bg-[#d5d6d9]" : "hover:bg-blue-800"}`}  disabled={!checkIsProductEligible() ? true : false}>
       Add to cart
     </button>
     </div>

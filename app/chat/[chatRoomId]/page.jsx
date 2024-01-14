@@ -194,7 +194,7 @@ const Chatroom = ({ params }) => {
         {isChatExpired && otherUserData.pricing ? (
           <ConsultBtn isInChatRoom={true} otherUserData={otherUserData} chatRoomId={chatRoomId} />
         ) : (
-          <button onClick={onSubmit} className="btn btn-md btn-accent text-base-100 ml-3 lg:ml-5" disabled={isChatExpired}>
+          <button onClick={onSubmit} className="btn btn-md bg-[#001a9d] text-base-100 ml-3 lg:ml-5" disabled={isChatExpired}>
             Send
           </button>
         )}

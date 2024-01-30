@@ -162,7 +162,7 @@ const Chatroom = ({ params }) => {
                   />
                 </div>
               ) : (
-                <div className="message-text mr-6" style={{ maxWidth: "40vw", wordBreak: "break-word" }}>
+                <div className="message-text mr-6" style={{ maxWidth: "55vw", wordBreak: "break-word" }}>
                   {message.text}
                 </div>
               )}

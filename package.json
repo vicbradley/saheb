@@ -16,6 +16,7 @@
     "@fontsource/titan-one": "^5.0.17",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@radix-ui/themes": "^2.0.0",
+    "crypto-browserify": "^3.12.0",
     "date-and-time": "^3.0.3",
     "encoding": "^0.1.13",
     "firebase": "^10.5.0",
@@ -30,6 +31,7 @@
     "react-countdown": "^2.3.5",
     "react-dom": "^18",
     "react-transition-group": "^4.4.5",
+    "stream-browserify": "^3.0.0",
     "validator": "^13.11.0"
   },
   "devDependencies": {

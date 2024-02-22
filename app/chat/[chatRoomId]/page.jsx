@@ -8,6 +8,8 @@ import Loading from "@/app/components/Loading";
 import date from "date-and-time";
 import UploadImage from "./UploadImage";
 import ConsultBtn from "@/app/consult/ConsultBtn";
+import { encryptMessage } from "@/app/logic/encryptMsg";
+import { decryptMessage } from "@/app/logic/decryptMsg";
 
 const Chatroom = ({ params }) => {
   const chatRoomId = params.chatRoomId;
@@ -42,11 +44,20 @@ const Chatroom = ({ params }) => {
     const now = new Date();
 
     // Create a copy of the updated messageObject
+    // const newMessageObj = {
+    //   senderId: getUserInfo().uid,
+    //   senderDisplayName: getUserInfo().username,
+    //   createdAt: date.format(now, "HH:mm:ss"),
+    //   text: newMessage,
+    //   isRead: false,
+    // };
+
+    // test enkrpisi
     const newMessageObj = {
       senderId: getUserInfo().uid,
       senderDisplayName: getUserInfo().username,
       createdAt: date.format(now, "HH:mm:ss"),
-      text: newMessage,
+      text: encryptMessage("ini key", newMessage),
       isRead: false,
     };
 
@@ -155,15 +166,12 @@ const Chatroom = ({ params }) => {
                 //   />
                 // </div>
                 <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh]">
-                  <img
-                    src={message.text}
-                    alt="Chat Image"
-                    className="w-[100%] h-[100%] mx-auto object-contain rounded"
-                  />
+                  <img src={message.text} alt="Chat Image" className="w-[100%] h-[100%] mx-auto object-contain rounded" />
                 </div>
               ) : (
                 <div className="message-text mr-6" style={{ maxWidth: "55vw", wordBreak: "break-word" }}>
-                  {message.text}
+                  {/* {message.text} */}
+                  {decryptMessage("ini key", message.text)}
                 </div>
               )}
               <span className="text-xs text-slate-500 font-thin flex justify-end">{message.createdAt}</span>

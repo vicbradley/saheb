@@ -8,8 +8,6 @@ import Loading from "@/app/components/Loading";
 import date from "date-and-time";
 import UploadImage from "./UploadImage";
 import ConsultBtn from "@/app/consult/ConsultBtn";
-import { encryptMessage } from "@/app/logic/encryptMsg";
-import { decryptMessage } from "@/app/logic/decryptMsg";
 
 const Chatroom = ({ params }) => {
   const chatRoomId = params.chatRoomId;
@@ -34,6 +32,7 @@ const Chatroom = ({ params }) => {
     setIsKeyboardOpen(false);
   };
 
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -44,20 +43,11 @@ const Chatroom = ({ params }) => {
     const now = new Date();
 
     // Create a copy of the updated messageObject
-    // const newMessageObj = {
-    //   senderId: getUserInfo().uid,
-    //   senderDisplayName: getUserInfo().username,
-    //   createdAt: date.format(now, "HH:mm:ss"),
-    //   text: newMessage,
-    //   isRead: false,
-    // };
-
-    // test enkrpisi
     const newMessageObj = {
       senderId: getUserInfo().uid,
       senderDisplayName: getUserInfo().username,
       createdAt: date.format(now, "HH:mm:ss"),
-      text: encryptMessage("ini key", newMessage),
+      text: newMessage,
       isRead: false,
     };
 
@@ -104,10 +94,6 @@ const Chatroom = ({ params }) => {
     setIsOtherUserDataReady(true);
   };
 
-  const randomKey = (createdAt) => {
-    const randomNumber = Math.floor(Math.random() * 98) + 1;
-    return randomNumber + createdAt;
-  };
 
   useEffect(() => {
     getConsultantData();
@@ -154,8 +140,8 @@ const Chatroom = ({ params }) => {
       <ChatNavbar otherUserData={otherUserData} changeChatExpiredState={changeChatExpiredState} />
 
       <div className="flex-1 px-2 border h-[80vh] lg:h-[76vh] overflow-y-auto" ref={messageContainerRef}>
-        {messages.map((message) => (
-          <div key={randomKey(message.createdAt)} className={`chat ${message.senderId === getUserInfo().uid ? "chat-end" : "chat-start"}`}>
+        {messages.map((message, index) => (
+          <div key={index} className={`chat ${message.senderId === getUserInfo().uid ? "chat-end" : "chat-start"}`}>
             <div className="chat-bubble bg-base-300 text-slate-800 font-semibold mt-3 flex flex-col justify-center">
               {isImageLink(message.text) ? (
                 // <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh] ">
@@ -170,8 +156,8 @@ const Chatroom = ({ params }) => {
                 </div>
               ) : (
                 <div className="message-text mr-6" style={{ maxWidth: "55vw", wordBreak: "break-word" }}>
-                  {/* {message.text} */}
-                  {decryptMessage("ini key", message.text)}
+                  {message.text}
+                  {/* {decryptMessage("ini key", message.text)} */}
                 </div>
               )}
               <span className="text-xs text-slate-500 font-thin flex justify-end">{message.createdAt}</span>

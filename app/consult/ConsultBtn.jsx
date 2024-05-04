@@ -2,20 +2,27 @@ import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody,
 import { useRef, useState } from "react";
 import { useAuthContext } from "../context/Auth";
 import SignInPopUp from "../components/SignInPopUp";
-import { db } from "@/src/firebase/config";
-import { collection, query, where, getDocs, addDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 import { getUserInfo } from "../logic/getUserInfo";
 import { useRouter } from "next/navigation";
 import { useMessageContext } from "../context/Message";
 import moment from "moment";
+import { useFetchToken } from "../features/consult/useFetchToken";
+import { useCreateChatroom } from "../features/chatroom/useCreateChatroom";
+import { useFetchChatroomByParticipants } from "../features/chatroom/useFetchChatroomByParticipants";
+import { useEditChatroomExpiry } from "../features/chatroom/useEditChatroomExpiry";
+import useCallToast from "../features/helper/useCallToast";
 moment().format();
 
-const ConsultBtn = (props) => {
+const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
   const [inputValue, setInputValue] = useState(null);
+
   const { setIsChatExpired } = useMessageContext();
   const { isAuth } = useAuthContext();
+
   const { username, email, uid, profilePicture } = getUserInfo();
-  const { otherUserId, otherUsername, otherUserProfilePicture, pricing } = props.otherUserData;
+
+  const { chatPartnerId, chatPartnerUsername, chatPartnerProfilePicture, chatPartnerPricing } = chatPartnerData;
+
   const toast = useToast();
 
   const { push } = useRouter();
@@ -24,71 +31,55 @@ const ConsultBtn = (props) => {
   const initialRef = useRef(null);
   const finalRef = useRef(null);
 
-  const callToast = (title, description, status) => {
-    return toast({
-      title,
-      description,
-      status,
-      duration: 3000,
-      isClosable: true,
-    });
-  };
+  const { mutate: createChatroom } = useCreateChatroom({
+    onSuccess: (response) => {
+      useCallToast(toast, "Success", "Token yang anda masukkan benar silahkan berkonsultasi dengan dokter", "success")
 
-  const getUserData = async (userId) => {
-    const userRef = doc(db, "users", userId);
-    const userSnap = await getDoc(userRef);
-    return {
-      uid: userSnap.id,
-      username: userSnap.data().username,
-      profilePicture: userSnap.data().profilePicture,
-    };
-  };
+      push(`chat/${response.data.id}`);
+    },
+  });
+
+  const { mutate: editChatroomExpiry } = useEditChatroomExpiry({
+    onSuccess: () => {
+      setIsChatExpired(false);
+
+      useCallToast(toast, "Success", "Sesi konsultasi diperpanjang", "success")
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    },
+  });
+
 
   const checkToken = async () => {
-    const q = query(collection(db, "tokens"), where("token", "==", inputValue));
-    const tokenDocs = await getDocs(q);
+    try {
+      await useFetchToken(inputValue);
 
-    if (tokenDocs.docs[0]) {
-      if (props.isInChatRoom) {
-        const existChatRoomRef = doc(db, "chatrooms", props.chatRoomId);
-        await updateDoc(existChatRoomRef, {
-          // chatExpired: moment().add(30, "minutes")._d.toString(),
-          chatExpired: moment().add(1, 'days')._d.toString(),
-        });
-
-        // setIsChatRoomExtended(true);
-        setIsChatExpired(false);
-
-        callToast("Success", "Sesi konsultasi diperpanjang", "success");
-
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
-
-        return;
+      if (isInChatRoom) {
+        editChatroomExpiry(chatroomId);
       } else {
-        const [currentUserData, participantData] = await Promise.all([getUserData(uid), getUserData(otherUserId)]);
-
-        // chatroom
-        const chatRoomRef = await addDoc(collection(db, "chatrooms"), {
-          messages: [],
-          participants: [currentUserData, participantData],
-          chatExpired: moment().add(1, 'days')._d.toString()
-          // chatExpired: moment().add(30, "minutes")._d.toString(),
+        createChatroom({
+          mainUserData: {
+            uid,
+            username,
+            profilePicture,
+          },
+          chatPartnerData: {
+            uid: chatPartnerId,
+            username: chatPartnerUsername,
+            profilePicture: chatPartnerProfilePicture,
+          },
         });
-
-        callToast("Success", "Token yang anda masukkan benar silahkan berkonsultasi dengan dokter", "success");
-
-        push(`chat/${chatRoomRef.id}`);
       }
-    } else {
-      callToast("Error", "Token yang anda masukkan salah", "error");
+    } catch (error) {
+      useCallToast(toast, "Error", error.response.data, "error");
     }
   };
 
   const buyToken = () => {
     const encodedUrlText = encodeURIComponent(
-      `Saheb\n=====\nUID: ${uid}\nUsername: ${username}\nEmail:${email}\n=====\nPembelian token senilai Rp.${Intl.NumberFormat("id-ID").format(parseInt(pricing))} untuk berkonsultasi dengan ${otherUsername}`
+      `Saheb\n=====\nUID: ${uid}\nUsername: ${username}\nEmail:${email}\n=====\nPembelian token senilai Rp.${Intl.NumberFormat("id-ID").format(parseInt(chatPartnerPricing))} untuk berkonsultasi dengan ${chatPartnerUsername}`
     );
 
     const whatsappLink = `https://wa.me/6285656736455?text=${encodedUrlText}`;
@@ -97,44 +88,11 @@ const ConsultBtn = (props) => {
 
   const openModal = async () => {
     try {
-      const chatRoomCollection = await getDocs(collection(db, "chatrooms"));
+      const chatroomData = await useFetchChatroomByParticipants(uid, chatPartnerId);
 
-      if (chatRoomCollection.empty) {
-        onOpen();
-        return;
-      }
-
-      const participant1Obj = {
-        uid,
-        username,
-        profilePicture,
-      };
-
-      const participant2Obj = {
-        uid: otherUserId,
-        username: otherUsername,
-        profilePicture: otherUserProfilePicture,
-      };
-
-      const q1 = query(collection(db, "chatrooms"), where("participants", "array-contains", participant1Obj));
-
-      const q2 = query(collection(db, "chatrooms"), where("participants", "array-contains", participant2Obj));
-
-      const [snapshot1, snapshot2] = await Promise.all([getDocs(q1), getDocs(q2)]);
-
-      const commonChatrooms = [];
-
-      snapshot1.forEach((doc1) => {
-        snapshot2.forEach((doc2) => {
-          if (doc1.id === doc2.id) {
-            commonChatrooms.push(doc1);
-          }
-        });
-      });
-
-      commonChatrooms[0] ? push(`chat/${commonChatrooms[0].id}`) : onOpen();
+      push(`chat/${chatroomData.id}`);
     } catch (error) {
-      console.error("Error fetching chat rooms:", error);
+      onOpen();
     }
   };
 
@@ -144,7 +102,7 @@ const ConsultBtn = (props) => {
 
   return (
     <>
-      {props.isInChatRoom ? (
+      {isInChatRoom ? (
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -155,7 +113,10 @@ const ConsultBtn = (props) => {
           Beli token
         </button>
       ) : (
-        <button className="text-white sm:w-[30%] lg:w-auto bg-[#001a9d] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm lg:text-md px-3 lg:px-5 py-2.5 text-center" onClick={otherUserId !== uid ? openModal : () => ""}>
+        <button
+          className="text-white sm:w-[30%] lg:w-auto bg-[#001a9d] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm lg:text-md px-3 lg:px-5 py-2.5 text-center"
+          onClick={chatPartnerId !== uid ? openModal : () => ""}
+        >
           Konsultasi
         </button>
       )}

@@ -1,14 +1,13 @@
 import ConsultBtn from "./ConsultBtn";
 
-const ConsultantList = (props) => {
-  const id = props.consultantData.id;
-  const { username, profilePicture, speciality, experience, pricing } = props.consultantData.consultantData;
+const ConsultantList = ({consultantData}) => {
+  const { id, username, profilePicture, speciality, experience, pricing, location } = consultantData;
 
-  const otherUserData = {
-    otherUserId: id,
-    otherUsername: username,
-    otherUserProfilePicture: profilePicture,
-    pricing: pricing,
+  const chatPartnerData = {
+    chatPartnerId: id,
+    chatPartnerUsername: username,
+    chatPartnerProfilePicture: profilePicture,
+    chatPartnerPricing: pricing,
   };
 
   return (
@@ -27,8 +26,7 @@ const ConsultantList = (props) => {
         <div className="flex items-center justify-between">
           <span className="bg-blue-100 text-blue-800 text-sm sm:text-md md:text-md lg:text-base font-semibold p-2 rounded">Rp {Intl.NumberFormat("id-ID").format(pricing)}</span>
           
-          {/* <ConsultBtn consultantData={{ consultantId: id, consultantUsername: username, pricing: pricing, consultantProfilePicture: profilePicture }} /> */}
-          <ConsultBtn otherUserData={otherUserData} />
+          <ConsultBtn chatPartnerData={chatPartnerData} />
         </div>
       </div>
     </div>

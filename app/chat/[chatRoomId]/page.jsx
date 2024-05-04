@@ -1,131 +1,77 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import ChatNavbar from "./ChatNavbar";
-import { db } from "@/src/firebase/config";
-import { doc, updateDoc, arrayUnion, onSnapshot, getDoc } from "firebase/firestore";
 import { getUserInfo } from "@/app/logic/getUserInfo";
 import Loading from "@/app/components/Loading";
 import date from "date-and-time";
-import UploadImage from "./UploadImage";
+import ChatUploadImage from "./ChatUploadImage";
 import ConsultBtn from "@/app/consult/ConsultBtn";
+import { useCreateChatroomMessage } from "@/app/features/chatroom/useCreateChatroomMessage";
+import { useFetchChatPartnerData } from "@/app/features/chatroom/useFetchChatPartnerData";
+import { useFormik } from "formik";
+import useListenChatroom from "@/app/features/chatroom/useListenChatroom";
 
 const Chatroom = ({ params }) => {
-  const chatRoomId = params.chatRoomId;
-  const [isDataReady, setIsDataReady] = useState(false);
-  const [newMessage, setNewMessage] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [isChatExpired, setIsChatExpired] = useState(false);
-  const [isOtherUserDataReady, setIsOtherUserDataReady] = useState(false);
-  const [otherUserData, setOtherUserData] = useState(null);
+  const chatroomId = params.chatRoomId;
+  const { data: messages, isLoading: isMessagesLoading, error } = useListenChatroom(chatroomId);
+
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const [isThereANewMessage, setIsThereANewMessage] = useState(false);
-
   const messageContainerRef = useRef(null);
 
-  // Mengatur isKeyboardOpen saat input mendapatkan fokus
+  const { uid, username } = getUserInfo();
+
+  const formik = useFormik({
+    initialValues: {
+      newMessage: "",
+      messageImage: "",
+      fileUpload: "",
+      progressValue: 0,
+      isChatExpired: false,
+    },
+
+    onSubmit: () => {
+      const { newMessage, isChatExpired } = formik.values;
+
+      if (newMessage === "") return;
+
+      if (isChatExpired) return;
+
+      const now = new Date();
+
+      const newMessageObj = {
+        senderId: uid,
+        senderDisplayName: username,
+        createdAt: date.format(now, "HH:mm:ss"),
+        text: newMessage,
+        isRead: false,
+      };
+
+      createChatroomMessage(newMessageObj);
+    },
+  });
+
+  const { data: chatPartnerData, isLoading: chatPartnerDataIsLoading } = useFetchChatPartnerData(chatroomId, uid);
+
+  const { mutate: createChatroomMessage } = useCreateChatroomMessage(chatroomId, {
+    onSuccess: () => {
+      setIsThereANewMessage(true);
+
+      formik.resetForm();
+    },
+  });
+
   const handleInputFocus = () => {
     setIsKeyboardOpen(true);
   };
 
-  // Mengatur isKeyboardOpen saat input kehilangan fokus
   const handleInputBlur = () => {
     setIsKeyboardOpen(false);
-  };
-
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    if (newMessage === "") return;
-
-    if (isChatExpired) return;
-
-    const now = new Date();
-
-    // Create a copy of the updated messageObject
-    const newMessageObj = {
-      senderId: getUserInfo().uid,
-      senderDisplayName: getUserInfo().username,
-      createdAt: date.format(now, "HH:mm:ss"),
-      text: newMessage,
-      isRead: false,
-    };
-
-    const chatRoomRef = doc(db, "chatrooms", params.chatRoomId);
-
-    await updateDoc(chatRoomRef, {
-      messages: arrayUnion(newMessageObj),
-    });
-
-    setIsThereANewMessage(true);
-
-    setNewMessage("");
-  };
-
-  const changeChatExpiredState = () => {
-    setIsChatExpired(true);
   };
 
   const isImageLink = (text) => {
     if (text.startsWith("https://firebasestorage.googleapis.com/")) return true;
   };
-
-  const getConsultantData = async () => {
-    const chatRoomRef = doc(db, "chatrooms", chatRoomId);
-    const chatRoomSnap = await getDoc(chatRoomRef);
-
-    const chatExpired = chatRoomSnap.data().chatExpired;
-
-    const otherParticipants = chatRoomSnap.data().participants.filter((participant) => getUserInfo().uid !== participant.uid)[0];
-
-    const { uid, username, profilePicture } = otherParticipants;
-
-    const otherUserRef = doc(db, "users", uid);
-    const otherUserSnap = await getDoc(otherUserRef);
-
-    setOtherUserData({
-      otherUserId: uid,
-      otherUsername: username,
-      otherUserProfilePicture: profilePicture,
-      chatExpired,
-      pricing: otherUserSnap.data().isAConsultant ? otherUserSnap.data().consultantData.pricing : null,
-    });
-
-    setIsOtherUserDataReady(true);
-  };
-
-
-  useEffect(() => {
-    getConsultantData();
-
-    const unsub = onSnapshot(doc(db, "chatrooms", chatRoomId), async (document) => {
-      if (document.data().messages.length < 1) {
-        console.log("salah");
-        return;
-      }
-
-      const messagesFromDb = document.data().messages;
-
-      messagesFromDb.forEach((msg) => {
-        if (msg.senderId !== getUserInfo().uid && msg.isRead === false) {
-          msg.isRead = true;
-        }
-
-        isImageLink(msg.text);
-      });
-
-      const docRef = doc(db, "chatrooms", chatRoomId);
-      await updateDoc(docRef, {
-        messages: messagesFromDb,
-      });
-
-      setMessages(messagesFromDb);
-    });
-
-    setIsDataReady(true);
-
-    return () => unsub();
-  }, []);
 
   useEffect(() => {
     if ((messageContainerRef.current && !isKeyboardOpen) || (messageContainerRef.current && isThereANewMessage)) {
@@ -133,31 +79,25 @@ const Chatroom = ({ params }) => {
     }
   }, [messages, isKeyboardOpen]);
 
-  if (!isDataReady || !isOtherUserDataReady) return <Loading />;
+  if (error) return <h1>Error</h1>;
+
+  if (isMessagesLoading || chatPartnerDataIsLoading) return <Loading />;
 
   return (
     <>
-      <ChatNavbar otherUserData={otherUserData} changeChatExpiredState={changeChatExpiredState} />
+      <ChatNavbar chatPartnerData={chatPartnerData} formik={formik} />
 
       <div className="flex-1 px-2 border h-[80vh] lg:h-[76vh] overflow-y-auto" ref={messageContainerRef}>
         {messages.map((message, index) => (
-          <div key={index} className={`chat ${message.senderId === getUserInfo().uid ? "chat-end" : "chat-start"}`}>
+          <div key={index} className={`chat ${message.senderId === uid ? "chat-end" : "chat-start"}`}>
             <div className="chat-bubble bg-base-300 text-slate-800 font-semibold mt-3 flex flex-col justify-center">
               {isImageLink(message.text) ? (
-                // <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh] ">
-                //   <img
-                //     src={message.text}
-                //     alt="Chat Image"
-                //     className="w-[100%] h-[100%] mx-auto object-cover rounded"
-                //   />
-                // </div>
                 <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh]">
                   <img src={message.text} alt="Chat Image" className="w-[100%] h-[100%] mx-auto object-contain rounded" />
                 </div>
               ) : (
                 <div className="message-text mr-6" style={{ maxWidth: "55vw", wordBreak: "break-word" }}>
                   {message.text}
-                  {/* {decryptMessage("ini key", message.text)} */}
                 </div>
               )}
               <span className="text-xs text-slate-500 font-thin flex justify-end">{message.createdAt}</span>
@@ -165,30 +105,29 @@ const Chatroom = ({ params }) => {
           </div>
         ))}
       </div>
-      {/* 
-      className={`p-2 ${isKeyboardOpen ? "translate-y-[-5px]" : ""} ${isThereANewMessage ? "translate-y-[-5px]" : ""} */}
 
-      <form className="p-2 ${isKeyboardOpen ? 'translate-y-[-5px]' : ''} ${isThereANewMessage ? 'translate-y-[-5px]' : ''}  flex items-center justify-between" disabled>
+      <form onSubmit={formik.handleSubmit} className="p-2 ${isKeyboardOpen ? 'translate-y-[-5px]' : ''} ${isThereANewMessage ? 'translate-y-[-5px]' : ''}  flex items-center justify-between" disabled>
         {/* upload image */}
-        <UploadImage chatRoomId={chatRoomId} isChatExpired={isChatExpired} />
+        <ChatUploadImage chatroomId={chatroomId} formik={formik} />
 
         {/* text input */}
         <input
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
-          onChange={(e) => setNewMessage(e.target.value)}
-          value={newMessage}
+          name="newMessage"
+          onChange={formik.handleChange}
+          value={formik.values.newMessage}
           type="text"
-          placeholder={isChatExpired ? "Beli token untuk melanjutkan konsultasi" : "Type here"}
+          placeholder={formik.values.isChatExpired ? "Beli token untuk melanjutkan konsultasi" : "Type here"}
           className="input input-bordered w-[80%] lg:w-[90%] lg:ml-4"
-          disabled={isChatExpired}
+          disabled={formik.values.isChatExpired}
         />
 
         {/* button */}
-        {isChatExpired && otherUserData.pricing ? (
-          <ConsultBtn isInChatRoom={true} otherUserData={otherUserData} chatRoomId={chatRoomId} />
+        {formik.values.isChatExpired && chatPartnerData.pricing ? (
+          <ConsultBtn isInChatRoom={true} chatPartnerData={chatPartnerData} chatroomId={chatroomId} />
         ) : (
-          <button onClick={onSubmit} className="btn btn-md bg-[#001a9d] text-base-100 ml-3 lg:ml-5" disabled={isChatExpired}>
+          <button type="submit" className="btn btn-md bg-[#001a9d] text-base-100 ml-3 lg:ml-5" disabled={formik.values.isChatExpired}>
             Send
           </button>
         )}

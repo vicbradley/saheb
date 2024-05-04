@@ -1,11 +1,11 @@
 import { AlertDialog, Flex } from "@radix-ui/themes";
-import { doc, deleteDoc } from "firebase/firestore";
-import { db } from "@/src/firebase/config";
 import { useToast, Button } from "@chakra-ui/react";
+import { useDeleteProduct } from "@/app/features/store/useDeleteProduct";
+import useCallToast from "@/app/features/helper/useCallToast";
 
-const DeleteProductBtn = (props) => {
-  const {productId, productName} = props;
+const DeleteProductBtn = ({ storeId, productId, productName }) => {
   const toast = useToast();
+  const { mutate: deleteProduct } = useDeleteProduct(storeId, productId);
 
   const handleDelete = async () => {
     deleteProduct();
@@ -16,7 +16,7 @@ const DeleteProductBtn = (props) => {
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
-        <Button colorScheme='red'>Delete</Button>
+        <Button colorScheme="red">Delete</Button>
       </AlertDialog.Trigger>
       <AlertDialog.Content style={{ maxWidth: 450 }}>
         <AlertDialog.Title>Hapus {productName} ?</AlertDialog.Title>
@@ -24,9 +24,7 @@ const DeleteProductBtn = (props) => {
 
         <Flex gap="3" mt="4" justify="end">
           <AlertDialog.Cancel>
-            <Button color="gray">
-              Cancel
-            </Button>
+            <Button color="gray">Cancel</Button>
           </AlertDialog.Cancel>
           <AlertDialog.Action>
             <Button colorScheme="red" onClick={handleDelete}>

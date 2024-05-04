@@ -1,6 +1,10 @@
 import Countdown from 'react-countdown';
 
-const CountdownTimer = (props) => {
+const CountdownTimer = ({chatExpired, formik}) => {
+
+  const changeChangeExpiry = () => {
+    formik.setFieldValue("isChatExpired", true)
+  }
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -13,7 +17,7 @@ const CountdownTimer = (props) => {
   };
 
   return (
-    <Countdown date={props.chatExpired} renderer={renderer} onComplete={props.changeChatExpiredState}/>
+    <Countdown date={chatExpired} renderer={renderer} onComplete={changeChangeExpiry}/>
   )
 }
 

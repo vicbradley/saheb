@@ -1,36 +1,12 @@
 "use client";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { db } from "@/src/firebase/config";
 import Loading from "../components/Loading";
 import ConsultantList from "./ConsultantList";
+import { useFetchConsultants } from "../features/consult/useFetchConsultants";
 
 const Consult = () => {
-  const [isDataReady, setIsDataReady] = useState(false);
-  const [consultants, setConsultants] = useState(null);
+  const { isPending, data: consultants } = useFetchConsultants();
 
-  const fetchConsultants = async () => {
-    const q = query(collection(db, "users"), where("isAConsultant", "==", true));
-
-    const querySnapshot = await getDocs(q);
-
-    const tempConsultants = querySnapshot.docs.map((doc) => {
-      const { username, profilePicture, consultantData } = doc.data();
-      return {
-        id: doc.id,
-        consultantData: { ...consultantData, username, profilePicture },
-      };
-    });
-
-    setConsultants(tempConsultants);
-    setIsDataReady(true);
-  };
-
-  useEffect(() => {
-    fetchConsultants();
-  }, []);
-
-  if (!isDataReady) return <Loading />;
+  if (isPending) return <Loading />;
 
   return (
     <div className="pb-6">

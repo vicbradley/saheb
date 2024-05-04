@@ -8,15 +8,10 @@ const DeleteProductBtn = (props) => {
   const toast = useToast();
 
   const handleDelete = async () => {
-    await deleteDoc(doc(db, "products", productId));
-    toast({
-      title: "Success",
-      description: `${productName} berhasil dihapus dari daftar produk`,
-      status: "success",
-      duration: 5000,
-      isClosable: true,
-    });
-  }
+    deleteProduct();
+
+    useCallToast(toast, "Produk berhasil dihapus", `${productName} berhasil dihapus dari daftar produk`, "success");
+  };
 
   return (
     <AlertDialog.Root>

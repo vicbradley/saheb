@@ -1,26 +1,28 @@
 "use client";
 import { useEffect, useState } from "react";
 import Product from "../components/Product";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Loading from "../components/Loading";
 import { useFetchProducts } from "../features/products/useFetchProducts";
 import SearchProducts from "./SearchProducts";
-import useSearchProducts from "../features/products/useSearchProducts";
 
 const Products = () => {
-  const { isPending, data: products } = useFetchProducts();
-  const [searchedProducts, setSearchedProducts] = useState(products);
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const [page, setPage] = useState(parseInt(searchParams.get("page")) || 1);
+  const [limit] = useState(parseInt(searchParams.get("limit")) || 20);
+
+  const { isLoading, data, refetch } = useFetchProducts(page, limit);
+  const { products, totalItems, totalPages } = data || {};
 
   const renderProducts = () => {
-    const productsToRender = searchedProducts || products;
     return (
       <>
-        {productsToRender.length < 1 ? (
+        {products.length < 1 ? (
           <p className="w-[80%] h-[50vh] text-center mx-auto flex items-center justify-center text-[#001a9d] font-semibold text-lg">Produk tidak ditemukan, coba keyword lain...</p>
         ) : (
           <div className="flex flex-wrap justify-around">
-            {productsToRender.map((product) => (
+            {products.map((product) => (
               <Product key={product.id} data={product} />
             ))}
           </div>
@@ -29,17 +31,27 @@ const Products = () => {
     );
   };
 
-  useEffect(() => {
-    if (products && searchParams.get("query")) {
-      const results = useSearchProducts(products, searchParams.get("query"));
-      
-      setSearchedProducts(results);
-    } else {
-      setSearchedProducts(products);
-    }
-  }, [products, searchParams.get("query")]);
+  const renderPagination = () => {
+    const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+    return (
+      <div className="join flex justify-center mt-8">
+        {pages.map((pageNum) => (
+          <button key={pageNum} onClick={() => setPage(pageNum)} className={`join-item btn ${page === pageNum ? "btn-active bg-[#001a9d] text-white hover:bg-blue-500" : ""}`}>
+            {pageNum}
+          </button>
+        ))}
+      </div>
+    );
+  };
 
-  if (isPending) return <Loading />;
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", page);
+    router.push(`?${params.toString()}`);
+    refetch();
+  }, [page]);
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="pb-6">
@@ -51,6 +63,8 @@ const Products = () => {
         <SearchProducts />
 
         {renderProducts()}
+
+        {renderPagination()}
       </div>
     </div>
   );

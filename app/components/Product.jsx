@@ -19,8 +19,8 @@ const Product = (props) => {
   };
 
   return (
-    <div className="w-[80%] h-[60vh] lg:h-[80vh] mt-4 p-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" onClick={() => push(`${storeId}/product/${id}`)}>
-      <div className="h-[65%] flex justify-center items-center">
+    <div className="w-[80%] h-[60vh] lg:h-[80vh] mt-4 p-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="h-[65%] flex justify-center items-center"  onClick={() => push(`${storeId}/product/${id}`)}>
         <img className="p-8 mx-auto w-[100%] h-[100%] rounded-t-lg object-cover" src={image} alt={name} />
       </div>
       <div className="px-5 pb-5">

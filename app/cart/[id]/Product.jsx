@@ -1,21 +1,24 @@
 "use client";
-import { doc, updateDoc, arrayRemove } from "firebase/firestore";
-import { db } from "@/src/firebase/config";
 import { useCartContext } from "@/app/context/Cart";
+import { useDeleteCartItem } from "@/app/features/cart/useDeleteCartItem";
+import { getUserInfo } from "@/app/logic/getUserInfo";
 
-const Product = (props) => {
-  const { id, name, price, stock, image, amount, storeId, storeName } = props.data;
-  const cartId = props.cartId;
-  const { totalPrice, setTotalPrice, cartProducts, setCartProducts } = useCartContext();
+const Product = ({ productData }) => {
+  const { id, name, price, stock, image, amount, storeId, storeName } = productData;
+  const { totalPrice, setTotalPrice, cart, setCart } = useCartContext();
+
+  const { mutate: deleteCartItem } = useDeleteCartItem(getUserInfo().uid);
+
+  const handleDelete = () => {
+    deleteCartItem(id);
+  };
 
   const handleIncrement = () => {
     if (amount == stock) return;
 
-    const updatedCartProducts = cartProducts.map(obj => 
-      obj.id === id ? { ...obj, amount: amount + 1 } : obj
-    );
+    const updatedCartProducts = cart.products.map((obj) => (obj.id === id ? { ...obj, amount: amount + 1 } : obj));
 
-    setCartProducts(updatedCartProducts);
+    setCart((prevCart) => ({ ...prevCart, products: updatedCartProducts }));
 
     setTotalPrice(totalPrice + parseInt(price));
   };
@@ -23,23 +26,11 @@ const Product = (props) => {
   const handleDecrement = () => {
     if (amount == 1) return;
 
-    const updatedCartProducts = cartProducts.map(obj => 
-      obj.id === id ? { ...obj, amount: amount - 1 } : obj
-    );
+    const updatedCartProducts = cart.products.map((obj) => (obj.id === id ? { ...obj, amount: amount - 1 } : obj));
 
-    setCartProducts(updatedCartProducts);
+    setCart((prevCart) => ({ ...prevCart, products: updatedCartProducts }));
 
     setTotalPrice(totalPrice - parseInt(price));
-  };
-
-  const handleDelete = async () => {
-    const obj = { id, name, price, stock, image, amount, storeId, storeName  };
-    const cartRef = doc(db, "carts", cartId);
-
-    // only remove products object in db if === obj
-    await updateDoc(cartRef, {
-      products: arrayRemove(obj),
-    });
   };
 
   return (
@@ -59,8 +50,7 @@ const Product = (props) => {
       </div>
 
       <div className="flex justify-end items-center">
-        <button
-          className="bg-red-500 text-white btn btn-sm sm:btn-sm md:btn-md lg:btn-md mr-4" onClick={handleDelete}>
+        <button className="bg-red-500 text-white btn btn-sm sm:btn-sm md:btn-md lg:btn-md mr-4" onClick={handleDelete}>
           Delete
         </button>
         <div className="flex w-20 border border-slate-800 rounded-lg justify-around p-1">

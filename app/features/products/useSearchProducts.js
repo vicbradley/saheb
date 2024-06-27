@@ -1,18 +1,12 @@
-import MiniSearch from "minisearch";
+import { axiosInstance } from "@/app/lib/axiosInstance";
+import { useQuery } from "@tanstack/react-query";
 
-const useSearchProducts = (products, searchParams) => {
-  const miniSearchConfig = {
-    fields: ["name", "desc", "storeName"],
-    storeFields: ["id", "name", "price", "stock", "desc", "image", "storeName", "storeId"],
-  };
 
-  let miniSearch = new MiniSearch(miniSearchConfig);
-
-  miniSearch.addAll(products);
-
-  const results = miniSearch.search(searchParams);
-
-  return results;
+const useSearchProducts = (keyword) => {
+  return useQuery({
+    queryKey: ["search products"],
+    queryFn: () => axiosInstance.get(`/products/search/${keyword}`).then((res) => res.data),
+  });
 };
 
 export default useSearchProducts;

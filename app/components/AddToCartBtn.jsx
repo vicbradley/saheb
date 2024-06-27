@@ -1,33 +1,22 @@
 import { useAuthContext } from "../context/Auth";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { getUserInfo } from "../logic/getUserInfo";
-import { db } from "@/src/firebase/config";
 import { useToast } from "@chakra-ui/react";
 import SignInPopUp from "./SignInPopUp";
+import { useAddCartItem } from "../features/cart/useAddCartItem";
+import useCallToast from "../features/helper/useCallToast";
 
-const AddToCartBtn = (props) => {
-  const { id, name, price, stock, image, storeId, storeName } = props.productData;
+const AddToCartBtn = ({productData}) => {
+  const { stock, storeId } = productData;
   const { isAuth } = useAuthContext();
   const toast = useToast();
   const {store,uid} = getUserInfo();
 
+  const {mutate: addCartItem} = useAddCartItem(uid);
+
   const handleAddToCart = async (e) => {
     e.stopPropagation();
-    const cartRef = doc(db, "carts", uid);
-
-    console.log({id, name, price, stock, image, storeId, storeName, amount: 1});
-
-    await updateDoc(cartRef, {
-     products: arrayUnion({id, name, price, stock, image, storeId, storeName, amount: 1}) 
-    })
-
-    toast({
-      title: "Success",
-      description: "Produk ditambah ke keranjang",
-      status: "success",
-      duration: 5000,
-      isClosable: true,
-    });
+    addCartItem(productData);
+    useCallToast(toast, "Success", "Produk ditambah ke keranjang", "success");
   };
 
   const checkIsProductEligible = () => {

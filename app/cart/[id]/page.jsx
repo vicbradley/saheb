@@ -5,27 +5,27 @@ import { useCartContext } from "@/app/context/Cart";
 import PaymentDetails from "./PaymentDetails";
 import PaymentProcess from "./PaymentProcess";
 
-export default function UserCart ({ params }) {
-  const { cartProducts } = useCartContext();
+export default function UserCart({ params }) {
+  const { cart } = useCartContext();
+
   const cartId = params.id;
 
-  if (!cartProducts) {
+  if (cart.length < 1) {
     return <Loading />;
   }
-  
+
   return (
     <>
       <p className="font-extrabold m-4 text-2xl">Cart Items</p>
       <div>
-
-      {cartProducts.map((product) => (
-        <Product data={product} key={product.id} cartId={cartId} />
+        {cart.products.map((product) => (
+          <Product productData={product} key={product.id} />
         ))}
 
-      <PaymentDetails cartId={cartId}/>
-        </div>
+        <PaymentDetails/>
+      </div>
 
       <PaymentProcess />
     </>
   );
-};
+}

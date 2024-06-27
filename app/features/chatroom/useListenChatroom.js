@@ -1,33 +1,60 @@
 import { getUserInfo } from "@/app/logic/getUserInfo";
 import { useState, useEffect } from "react";
-import openSocket from "socket.io-client";
+import {  onSnapshot, doc, updateDoc } from "firebase/firestore";
+import { db } from "@/src/firebase/config";
 
 const useListenChatroom = (chatroomId) => {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const { uid } = getUserInfo();
-
-  const encodedType = encodeURIComponent("chatroom messages");
+  const [error] = useState(null);
 
   useEffect(() => {
-    console.log("start");
-    const socket = openSocket(`http://localhost:5000?type=${encodedType}&chatroomId=${chatroomId}&mainUserId=${uid}`, { transports: ["websocket"] });
+    const unsub = onSnapshot(doc(db, "chatrooms", chatroomId), async (document) => {
+      if (document.data().messages.length < 1) {
+        return;
+      }
 
-    socket.on("messages", (data) => {
-      setMessages(data);
-      setIsLoading(false);
+      const messagesFromDb = document.data().messages;
+
+      messagesFromDb.forEach((msg) => {
+        if (msg.senderId !== getUserInfo().uid && msg.isRead === false) {
+          msg.isRead = true;
+        }
+      });
+
+      const docRef = doc(db, "chatrooms", chatroomId);
+      await updateDoc(docRef, {
+        messages: messagesFromDb,
+      });
+
+      setMessages(messagesFromDb);
     });
 
-    socket.on("error", (error) => {
-      setError(error);
-      setIsLoading(false);
-    });
+    setIsLoading(false);
 
-    console.log("exit");
-    // Cleanup function to disconnect on unmount
-    return () => socket.disconnect();
+    return () => unsub();
   }, []);
+
+  // const encodedType = encodeURIComponent("chatroom messages");
+
+  // useEffect(() => {
+  //   console.log("start");
+  //   const socket = openSocket(`http://localhost:5000?type=${encodedType}&chatroomId=${chatroomId}&mainUserId=${uid}`, { transports: ["websocket"] });
+
+  //   socket.on("messages", (data) => {
+  //     setMessages(data);
+  //     setIsLoading(false);
+  //   });
+
+  //   socket.on("error", (error) => {
+  //     setError(error);
+  //     setIsLoading(false);
+  //   });
+
+  //   console.log("exit");
+  //   // Cleanup function to disconnect on unmount
+  //   return () => socket.disconnect();
+  // }, []);
 
   return {
     data: messages,

@@ -12,7 +12,6 @@ import useCallToast from "../features/helper/useCallToast";
 import { useFormik } from "formik";
 import { useCreateStore } from "../features/store/useCreateStore";
 import FileUpload from "../components/FileUpload";
-import { useFetchChatPartnerData } from "../features/chatroom/useFetchChatPartnerData";
 
 const StoreRegister = () => {
   const { isAuth, setIsLocalStorageUpdated } = useAuthContext();

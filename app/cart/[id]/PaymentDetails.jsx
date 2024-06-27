@@ -1,30 +1,20 @@
 import { useCartContext } from "@/app/context/Cart";
+import { useOrderItems } from "@/app/features/cart/useOrderItems";
 import { getUserInfo } from "@/app/logic/getUserInfo";
-import { updateDoc, doc,getDoc } from "firebase/firestore";
-import { db } from "@/src/firebase/config";
 
-const PaymentDetails = (props) => {
-  const { cartProducts, totalPrice } = useCartContext();
+const PaymentDetails = () => {
+  const { cart, totalPrice } = useCartContext();
 
-  const moveProductsToBeingPaid = async () => {
-    const cartRef = doc(db, "carts", props.cartId);
-    const cartSnap = await getDoc(cartRef);
+  const { uid, username, email } = getUserInfo();
 
-    await updateDoc(doc(db, "carts", getUserInfo().uid), {
-      products: [],
-      productsBeingPaid: [...cartSnap.data().productsBeingPaid, ...cartProducts]
-      
-    });
-  };
+  const { mutate: orderItems } = useOrderItems(uid);
 
   const openWA = () => {
-    moveProductsToBeingPaid();
-
-    const { uid, username, email } = getUserInfo();
+    orderItems(cart.products);
 
     let encodedUrlText = `Saheb%0A=====%0APemesan: ${username}%0AUID: ${uid}%0AEmail: ${email}`;
 
-    cartProducts.map((product) => {
+    cart.products.map((product) => {
       const { name, price, amount, storeName } = product;
       encodedUrlText += `%0A=========%0ANama Produk: ${name}%0ANama Toko: ${storeName}%0AHarga: ${Intl.NumberFormat("id-ID").format(price)}%0AJumlah: ${amount}`;
     });
@@ -43,7 +33,7 @@ const PaymentDetails = (props) => {
           <p className="text-xl">Rp. {Intl.NumberFormat("id-ID").format(totalPrice)}</p>
         </div>
 
-        <button className="btn bg-[#001a9d] text-white" onClick={openWA} disabled={cartProducts.length < 1 ? true : false}>
+        <button className="btn bg-[#001a9d] text-white" onClick={openWA} disabled={cart.length < 1 ? true : false}>
           Buy Now
         </button>
       </div>

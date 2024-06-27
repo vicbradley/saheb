@@ -6,12 +6,12 @@ const CartContext = createContext({});
 export const CartContextProvider = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [cartProductsLength, setCartProductsLength] = useState(0);
 
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
 
-  return <CartContext.Provider value={{ totalPrice, setTotalPrice, cartItemsCount, setCartItemsCount, cartProducts, setCartProducts }}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{ totalPrice, setTotalPrice, cartProductsLength, setCartProductsLength, cart, setCart }}>{children}</CartContext.Provider>;
 };
 
 export const useCartContext = () => useContext(CartContext);

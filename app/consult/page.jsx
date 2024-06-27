@@ -4,9 +4,9 @@ import ConsultantList from "./ConsultantList";
 import { useFetchConsultants } from "../features/consult/useFetchConsultants";
 
 const Consult = () => {
-  const { isPending, data: consultants } = useFetchConsultants();
+  const { isLoading, data: consultants } = useFetchConsultants();
 
-  if (isPending) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="pb-6">

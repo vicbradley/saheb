@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-const SearchProducts = ({isInStorePage}) => {
+const SearchProducts = ({ isInStorePage }) => {
   const [inputValue, setInputValue] = useState(null);
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -9,13 +9,14 @@ const SearchProducts = ({isInStorePage}) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const params = new URLSearchParams(searchParams);
     if (inputValue) {
-      params.set("query", inputValue);
-    } else {
-      params.delete("query");
+      // Check if pathname already includes '/search/'
+      const newPath = pathname.includes('/search/')
+        ? pathname.split('/search/')[0] + '/search/' + inputValue
+        : `${pathname}/search/${inputValue}`;
+
+      router.push(newPath);
     }
-    router.push(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -31,7 +32,6 @@ const SearchProducts = ({isInStorePage}) => {
         </div>
         <input
           onChange={(e) => setInputValue(e.target.value)}
-          defaultValue={searchParams.get("query")?.toString()}
           type="search"
           id="default-search"
           className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"

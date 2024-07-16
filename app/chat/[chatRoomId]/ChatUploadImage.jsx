@@ -5,6 +5,7 @@ import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "@/src/firebase/config";
 import date from "date-and-time";
 import FileUpload from "@/app/components/FileUpload";
+import { encryptMessage } from "@/app/logic/encryptMsg";
 
 const ChatUploadImage = ({ chatroomId, formik }) => {
   const { uid, username } = getUserInfo();
@@ -19,7 +20,7 @@ const ChatUploadImage = ({ chatroomId, formik }) => {
       senderId: uid,
       senderDisplayName: username,
       createdAt: date.format(now, "HH:mm:ss"),
-      text: messageImage,
+      text: encryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY ,messageImage),
       isRead: false,
     };
 

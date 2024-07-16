@@ -10,14 +10,20 @@ import { useCreateChatroomMessage } from "@/app/features/chatroom/useCreateChatr
 import { useFetchChatPartnerData } from "@/app/features/chatroom/useFetchChatPartnerData";
 import { useFormik } from "formik";
 import useListenChatroom from "@/app/features/chatroom/useListenChatroom";
+import { encryptMessage } from "@/app/logic/encryptMsg";
+import { decryptMessage } from "@/app/logic/decryptMsg";
 
 const Chatroom = ({ params }) => {
   const chatroomId = params.chatRoomId;
-  const { data: messages, isLoading: isMessagesLoading, error } = useListenChatroom(chatroomId);
+  // const { data: messages, isLoading: isMessagesLoading, error } = useListenChatroom(chatroomId);
 
+  const [messages, setMessages] = useState([]);
+  const [isMessagesLoading, setIsMessagesLoading] = useState(true);
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   const [isThereANewMessage, setIsThereANewMessage] = useState(false);
   const messageContainerRef = useRef(null);
+
+  useListenChatroom(chatroomId, setMessages, setIsMessagesLoading);
 
   const { uid, username } = getUserInfo();
 
@@ -41,9 +47,8 @@ const Chatroom = ({ params }) => {
 
       const newMessageObj = {
         senderId: uid,
-        senderDisplayName: username,
         createdAt: date.format(now, "HH:mm:ss"),
-        text: newMessage,
+        text: encryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY, newMessage),
         isRead: false,
       };
 
@@ -79,8 +84,6 @@ const Chatroom = ({ params }) => {
     }
   }, [messages, isKeyboardOpen]);
 
-  if (error) return <h1>Error</h1>;
-
   if (isMessagesLoading || chatPartnerDataIsLoading) return <Loading />;
 
   return (
@@ -91,13 +94,13 @@ const Chatroom = ({ params }) => {
         {messages.map((message, index) => (
           <div key={index} className={`chat ${message.senderId === uid ? "chat-end" : "chat-start"}`}>
             <div className="chat-bubble bg-base-300 text-slate-800 font-semibold mt-3 flex flex-col justify-center">
-              {isImageLink(message.text) ? (
+              {isImageLink(decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY ,message.text)) ? (
                 <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh]">
-                  <img src={message.text} alt="Chat Image" className="w-[100%] h-[100%] mx-auto object-contain rounded" />
+                  <img src={decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY ,message.text)} alt="Chat Image" className="w-[100%] h-[100%] mx-auto object-contain rounded" />
                 </div>
               ) : (
                 <div className="message-text mr-6" style={{ maxWidth: "55vw", wordBreak: "break-word" }}>
-                  {message.text}
+                  {decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY ,message.text)}
                 </div>
               )}
               <span className="text-xs text-slate-500 font-thin flex justify-end">{message.createdAt}</span>
@@ -127,7 +130,7 @@ const Chatroom = ({ params }) => {
         {formik.values.isChatExpired && chatPartnerData.pricing ? (
           <ConsultBtn isInChatRoom={true} chatPartnerData={chatPartnerData} chatroomId={chatroomId} />
         ) : (
-          <button type="submit" className="btn btn-md bg-[#001a9d] text-base-100 ml-3 lg:ml-5" disabled={formik.values.isChatExpired}>
+          <button type="submit" className="btn btn-md bg-[#001a9d] text-base-100 ml-3 lg:ml-5 hover:bg-[#3e5ae8]" disabled={formik.values.isChatExpired}>
             Send
           </button>
         )}

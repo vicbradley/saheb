@@ -10,7 +10,7 @@ export const useFetchChatroomByParticipants = async (mainUserId, chatPartnerId) 
     },
   });
 
-  const chatroomData = await queryClient.fetchQuery({ queryKey: ["fetch chatroom by participants"], queryFn: () => axiosInstance.get(`/chatrooms/participants/${mainUserId}/${chatPartnerId}`).then((res) => res.data) });
+  const chatroomData = await queryClient.fetchQuery({ queryKey: ["fetch chatroom by participants"], queryFn: () => axiosInstance.get(`/chatrooms/participants?mainUserId=${mainUserId}&chatPartnerId=${chatPartnerId}`).then((res) => res.data) });
 
   return chatroomData;
 };

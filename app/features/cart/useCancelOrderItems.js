@@ -5,8 +5,8 @@ export const useCancelOrderItems = (userId) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async () => {
-      const response = await axiosInstance.patch(`/cart/${userId}/cancel-order`);
+    mutationFn: async (body) => {
+      const response = await axiosInstance.patch(`/cart/${userId}/cancel-order`, body);
       return response;
     },
     onSuccess: () => {

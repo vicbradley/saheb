@@ -6,8 +6,8 @@ export const useDeleteProduct = (storeId, productId) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async () => {
-      const productsResponse = await axiosInstance.delete(`/stores/${storeId}/products/${productId}`);
+    mutationFn: async (body) => {
+      const productsResponse = await axiosInstance.delete(`/stores/${storeId}/products/${productId}`, body);
 
       return productsResponse;
     },

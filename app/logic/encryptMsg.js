@@ -23,6 +23,5 @@ export const encryptMessage = (key, str) => {
     res += String.fromCharCode(str.charCodeAt(y) ^ s[(s[i] + s[j]) % 256]);
   }
 
-  console.log(res);
   return res;
 };

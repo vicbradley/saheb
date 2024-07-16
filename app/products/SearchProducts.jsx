@@ -3,7 +3,6 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 const SearchProducts = ({ isInStorePage }) => {
   const [inputValue, setInputValue] = useState(null);
-  const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -20,7 +19,7 @@ const SearchProducts = ({ isInStorePage }) => {
   };
 
   return (
-    <form className={`pt-12 px-3 ${isInStorePage ? "" : "-mt-10"}`}>
+    <form className={`pt-10 px-3 ${isInStorePage ? "" : "-mt-10"}`}>
       <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">
         Search
       </label>

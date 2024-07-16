@@ -2,13 +2,17 @@ import { AlertDialog, Flex } from "@radix-ui/themes";
 import { useToast, Button } from "@chakra-ui/react";
 import { useDeleteProduct } from "@/app/features/store/useDeleteProduct";
 import useCallToast from "@/app/features/helper/useCallToast";
+import { getUserInfo } from "@/app/logic/getUserInfo";
 
 const DeleteProductBtn = ({ storeId, productId, productName }) => {
   const toast = useToast();
   const { mutate: deleteProduct } = useDeleteProduct(storeId, productId);
 
   const handleDelete = async () => {
-    deleteProduct();
+    deleteProduct({
+      storeId,
+      uid: getUserInfo().uid
+    });
 
     useCallToast(toast, "Produk berhasil dihapus", `${productName} berhasil dihapus dari daftar produk`, "success");
   };
@@ -16,7 +20,7 @@ const DeleteProductBtn = ({ storeId, productId, productName }) => {
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
-        <Button colorScheme="red">Delete</Button>
+        <p className="font-bold text-red-600  hover:underline cursor-pointer">Delete</p>
       </AlertDialog.Trigger>
       <AlertDialog.Content style={{ maxWidth: 450 }}>
         <AlertDialog.Title>Hapus {productName} ?</AlertDialog.Title>

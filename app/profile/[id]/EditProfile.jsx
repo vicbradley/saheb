@@ -6,7 +6,6 @@ import { getUserInfo } from "@/app/logic/getUserInfo";
 import useCallToast from "@/app/features/helper/useCallToast";
 import { useFormik } from "formik";
 import { useEditUser } from "@/app/features/user/useEditUser";
-import { useEditChatroomsUserData } from "@/app/features/chatroom/useEditChatroomsUserData";
 import FileUpload from "@/app/components/FileUpload";
 
 export default function EditProfile() {
@@ -16,7 +15,6 @@ export default function EditProfile() {
   const toast = useToast();
 
   const { mutate: editUser } = useEditUser(uid);
-  const { mutate: editChatroom } = useEditChatroomsUserData(uid);
 
   const formik = useFormik({
     initialValues: {
@@ -30,12 +28,7 @@ export default function EditProfile() {
       const { newUsername, newProfilePicture } = formik.values;
 
       editUser({
-        username: newUsername,
-        profilePicture: newProfilePicture,
-      });
-
-      editChatroom({
-        userData: {
+        userOldData: {
           username,
           profilePicture,
           uid,
@@ -47,6 +40,8 @@ export default function EditProfile() {
         },
       });
 
+      const accessToken = JSON.parse(localStorage.getItem("auth")).accessToken;
+
       localStorage.removeItem("auth");
 
       const updatedLocalStorage = {
@@ -55,6 +50,7 @@ export default function EditProfile() {
         profilePicture: !newProfilePicture ? profilePicture : newProfilePicture,
         email,
         store,
+        accessToken,
       };
 
       formik.resetForm();

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 // next
 import Link from "next/link";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 // firebase config
 import { auth } from "@/src/firebase/config";
 // logic
@@ -45,7 +45,13 @@ const Navbar = () => {
   }, [isAuth, isLocalStorageUpdated]);
 
   const handleSignIn = async () => {
-    (await signInWithGoogle()) ? setIsAuth(true) : setIsAuth(false);
+    if (await signInWithGoogle()) {
+      setIsAuth(true);
+      window.location.reload();
+    } else {
+      setIsAuth(false);
+      return;
+    }
   };
 
   const handleStoreButton = () => {
@@ -56,6 +62,10 @@ const Navbar = () => {
       push("/store-register");
     }
   };
+
+  const handleTransactionButton = () => {
+    push(`/transactions`)
+  }
 
   const signOutFromGoogle = async () => {
     try {
@@ -88,11 +98,11 @@ const Navbar = () => {
         </label>
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
           <li>
-            <Link href="/products">Products</Link>
+            <Link href="/products">Daftar Produk</Link>
           </li>
 
           <li>
-            <Link href="/consult">Consult</Link>
+            <Link href="/consult">Konsultasi</Link>
           </li>
         </ul>
       </div>
@@ -141,6 +151,14 @@ const Navbar = () => {
                 </Button>
               )}
               {!isAuth && <SignInPopUp text="Jadi Mitra Saheb" />}
+            </li>
+            <li className="mb-3">
+              {isAuth && (
+                <Button onClick={handleTransactionButton} _hover={{ bg: "baseBlue", color: "white" }} color="baseBlue">
+                  Transaksi
+                </Button>
+              )}
+              {!isAuth && <SignInPopUp text="Transaksi" />}
             </li>
             <li>
               <Button onClick={signOutFromGoogle} _hover={{ bg: "baseBlue", color: "white" }} color="baseBlue">

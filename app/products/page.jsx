@@ -10,10 +10,10 @@ const Products = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [page, setPage] = useState(parseInt(searchParams.get("page")) || 1);
-  const [limit] = useState(parseInt(searchParams.get("limit")) || 20);
+  // const [limit] = useState(parseInt(searchParams.get("limit")) || 20);
 
-  const { isLoading, data, refetch } = useFetchProducts(page, limit);
-  const { products, totalItems, totalPages } = data || {};
+  const { isLoading, data, refetch } = useFetchProducts(page);
+  const { products, totalPages } = data || {};
 
   const renderProducts = () => {
     return (

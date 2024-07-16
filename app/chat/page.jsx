@@ -29,9 +29,9 @@ const Chat = () => {
     <>
       {chatRoomsData.map((data) => (
         <div key={data.id}>
-          <div className="flex items-center ml-3" onClick={() => push(`chat/${data.id}`)}>
+          <div className="flex items-center ml-3 pt-4" onClick={() => push(`chat/${data.id}`)}>
             <div className="avatar w-[20%] lg:ml-3 lg:w-[10%]">
-              <div className="rounded-full w-14">
+              <div className="rounded-full w-14 ">
                 <img src={data.profilePicture} />
               </div>
             </div>

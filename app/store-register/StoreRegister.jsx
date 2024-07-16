@@ -28,7 +28,11 @@ const StoreRegister = () => {
 
       const { uid, username, email, profilePicture } = getUserInfo();
 
-      const updatedLocalStorage = { uid, username, email, profilePicture, store: formik.values.storeId };
+      const accessToken = JSON.parse(localStorage.getItem("auth")).accessToken;
+
+      localStorage.removeItem("auth");
+
+      const updatedLocalStorage = { uid, username, email, profilePicture, store: formik.values.storeId, accessToken };
       localStorage.setItem("auth", JSON.stringify(updatedLocalStorage));
       setIsLocalStorageUpdated(true);
 

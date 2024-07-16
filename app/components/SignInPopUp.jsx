@@ -8,13 +8,19 @@ const SignInPopUp = (props) => {
   const { setIsAuth } = useAuthContext();
 
   const handleSignIn = async () => {
-    (await signInWithGoogle()) ? setIsAuth(true) : setIsAuth(false);
+    if (await signInWithGoogle()) {
+      setIsAuth(true);
+      window.location.reload();
+    } else {
+      setIsAuth(false);
+      return;
+    }
   };
 
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
-          <Button color="#001a9d">{props.text}</Button>
+        <Button color="#001a9d">{props.text}</Button>
       </AlertDialog.Trigger>
 
       <AlertDialog.Content style={{ maxWidth: 350 }}>

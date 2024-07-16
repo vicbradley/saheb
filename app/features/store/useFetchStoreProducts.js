@@ -1,9 +1,9 @@
 import { axiosInstance } from "@/app/lib/axiosInstance";
 import { useQuery } from "@tanstack/react-query";
 
-export const useFetchStoreProducts = (storeId) => {
+export const useFetchStoreProducts = (storeId, page) => {
   return useQuery({
-    queryKey: ["store products"],
-    queryFn: () => axiosInstance.get(`/stores/${storeId}/products`).then((res) => res.data),
+    queryKey: ["store products", storeId],
+    queryFn: () => axiosInstance.get(`/stores/${storeId}/products?page=${page}`).then((res) => res.data),
   });
 };

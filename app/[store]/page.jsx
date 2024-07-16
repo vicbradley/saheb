@@ -2,28 +2,29 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import Product from "../components/Product";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useFetchStoreData } from "../features/store/useFetchStoreData";
 import { useFetchStoreProducts } from "../features/store/useFetchStoreProducts";
 import SearchProducts from "../products/SearchProducts";
-import useSearchProducts from "../features/products/useSearchProducts";
 
 export default function Page({ params }) {
   const storeId = params.store;
-  const { isPending: storeDataIsPending, data: storeData } = useFetchStoreData(storeId);
-  const { isPending: isProductsPending, data: products, isError: isProductsError } = useFetchStoreProducts(storeId);
-  const [searchedProducts, setSearchedProducts] = useState(products);
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const [page, setPage] = useState(parseInt(searchParams.get("page")) || 1);
+
+  const { isPending: storeDataIsPending, data: storeData } = useFetchStoreData(storeId);
+  const { isPending: isProductsPending, data, isError: isProductsError, refetch } = useFetchStoreProducts(storeId, page);
+  const { products, totalPages } = data || {};
 
   const renderProducts = () => {
-    const productsToRender = searchedProducts || products;
     return (
       <>
-        {productsToRender.length < 1 ? (
-          <p className="w-[80%] h-[50vh] text-center mx-auto flex items-center justify-center text-[#001a9d] font-semibold text-lg">Produk tidak ditemukan, coba keyword lain...</p>
+        {products.length < 1 ? (
+          <p className="w-[80%] h-[50vh] text-center mx-auto flex items-center justify-center text-[#001a9d] font-semibold text-lg">Toko belum memiliki produk</p>
         ) : (
           <div className="flex flex-wrap justify-around">
-            {productsToRender.map((product) => (
+            {products.map((product) => (
               <Product data={product} key={product.id} />
             ))}
           </div>
@@ -32,15 +33,27 @@ export default function Page({ params }) {
     );
   };
 
-  useEffect(() => {
-    if (products && searchParams.get("query")) {
-      const results = useSearchProducts(products, searchParams.get("query"));
+  const renderPagination = () => {
+    const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+    return (
+      <div className="join flex justify-center mt-8">
+        {pages.map((pageNum) => (
+          <button key={pageNum} onClick={() => setPage(pageNum)} className={`join-item btn ${page === pageNum ? "btn-active bg-[#001a9d] text-white hover:bg-blue-500" : ""}`}>
+            {pageNum}
+          </button>
+        ))}
+      </div>
+    );
+  };
 
-      setSearchedProducts(results);
-    } else {
-      setSearchedProducts(products);
-    }
-  }, [products, searchParams.get("query")]);
+  useEffect(() => {
+    if (totalPages <= 1) return;
+
+    const params = new URLSearchParams(searchParams);
+    params.set("page", page);
+    router.push(`?${params.toString()}`);
+    refetch();
+  }, [page, totalPages]);
 
   if (isProductsPending || storeDataIsPending) return <Loading />;
 
@@ -64,7 +77,10 @@ export default function Page({ params }) {
         ) : (
           <>
             <SearchProducts isInStorePage={true} />
+
             {renderProducts()}
+
+            {totalPages > 1 && renderPagination()}
           </>
         )}
       </div>

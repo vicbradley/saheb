@@ -5,84 +5,62 @@ import { db } from "@/src/firebase/config";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { useAuthContext } from "../context/Auth";
 import { useMessageContext } from "../context/Message";
+import { decryptMessage } from "../logic/decryptMsg";
 
 const ChatIcon = () => {
   const { setChatRoomsData, setIsChatRoomsDataReady, unreadMsgCount, setUnreadMsgCount } = useMessageContext();
 
   const { isAuth, isLocalStorageUpdated } = useAuthContext();
 
-
-  // useEffect(() => {
-  //   if (!isAuth) return;
-    
-  //   console.log("start");
-  //   const socket = openSocket(`http://localhost:5000?type=${encodedType}&uid=${uid}`, { transports: ["websocket"] });
-
-  //   socket.on("chatrooms data", (data) => {
-  //     setChatRoomsData(data.chatroomsData);
-  //     setUnreadMsgCount(data.unreadMessageCount);
-  //     setIsChatRoomsDataReady(true);
-  //   });
-
-  //   socket.on("error", (error) => {
-  //     setError(error);
-  //     setIsChatRoomsDataReady(true);
-  //   });
-
-  //   console.log("exit");
-  //   // Cleanup function to disconnect on unmount
-  //   return () => socket.disconnect();
-  // }, [isAuth, isLocalStorageUpdated, ]);
-
   useEffect(() => {
-  if (!isAuth) return;
+    if (!isAuth) return;
 
-  const { uid, username, profilePicture } = getUserInfo();
+    const { uid, username, profilePicture } = getUserInfo();
 
-  const q = query(collection(db, "chatrooms"), where("participants", "array-contains", { uid, profilePicture, username }));
+    const q = query(collection(db, "chatrooms"), where("participants", "array-contains", { uid, profilePicture, username }));
 
-  const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    let chatRoomsDatatemp = [];
-    let unreadMsgCountTemp = 0;
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let chatRoomsDatatemp = [];
+      let unreadMsgCountTemp = 0;
 
-    querySnapshot.forEach((doc) => {
-      const {participants, messages} = doc.data();
+      querySnapshot.forEach((doc) => {
+        const { participants, messages } = doc.data();
 
-      const participant = participants.filter((participant) => participant.uid !== uid);
+        const participant = participants.filter((participant) => participant.uid !== uid);
 
-      if (messages.length < 1) {
-        chatRoomsDatatemp.push({
-          id: doc.id,
-          username: participant[0].username,
-          profilePicture: participant[0].profilePicture,
-          unreadMsg: 0,
-          latestMsg: "",
-        });
-      } else {
-        const unreadMsg = messages.filter((msg) => {
-          return msg.senderId !== getUserInfo().uid && msg.isRead === false;
-        }).length;
+        if (messages.length < 1) {
+          chatRoomsDatatemp.push({
+            id: doc.id,
+            username: participant[0].username,
+            profilePicture: participant[0].profilePicture,
+            unreadMsg: 0,
+            latestMsg: "",
+          });
+        } else {
+          const unreadMsg = messages.filter((msg) => {
+            return msg.senderId !== getUserInfo().uid && msg.isRead === false;
+          }).length;
 
-        const latestMsg = messages[messages.length - 1].text;
+          const latestMsg = messages[messages.length - 1].text;
 
-        unreadMsgCountTemp += unreadMsg;
+          unreadMsgCountTemp += unreadMsg;
 
-        chatRoomsDatatemp.push({
-          id: doc.id,
-          username: participant[0].username,
-          profilePicture: participant[0].profilePicture,
-          unreadMsg,
-          latestMsg,
-        });
-      }
+          chatRoomsDatatemp.push({
+            id: doc.id,
+            username: participant[0].username,
+            profilePicture: participant[0].profilePicture,
+            unreadMsg,
+            latestMsg: decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY, latestMsg),
+          });
+        }
+      });
+
+      setChatRoomsData(chatRoomsDatatemp);
+      setUnreadMsgCount(unreadMsgCountTemp);
+      setIsChatRoomsDataReady(true);
     });
 
-    setChatRoomsData(chatRoomsDatatemp);
-    setUnreadMsgCount(unreadMsgCountTemp);
-    setIsChatRoomsDataReady(true);
-  });
-
-  return () => unsubscribe();
+    return () => unsubscribe();
   }, [isAuth, isLocalStorageUpdated]);
 
   return (

@@ -7,9 +7,11 @@ import { useCreateProduct } from "@/app/features/store/useCreateProduct";
 import { useEditProduct } from "@/app/features/store/useEditProduct";
 import useCallToast from "@/app/features/helper/useCallToast";
 import FileUpload from "@/app/components/FileUpload";
+import { getUserInfo } from "@/app/logic/getUserInfo";
 
 const Form = ({ formTitle, productData, storeData }) => {
   const toast = useToast();
+  const {uid} = getUserInfo();
   const { mutate: createProduct } = useCreateProduct();
   const { mutate: editProduct } = useEditProduct(productData?.id);
 
@@ -35,20 +37,20 @@ const Form = ({ formTitle, productData, storeData }) => {
           image,
           storeId: storeData.id,
           storeName: storeData.name,
+          uid,
         });
         useCallToast(toast, "Produk berhasil diperbarui", `${name} berhasil diperbarui`, "success");
       } else {
-        createProduct(
-          {
-            name,
-            desc,
-            price: parseInt(price),
-            stock: parseInt(stock),
-            image,
-            storeId: storeData.id,
-            storeName: storeData.name,
-          },
-        );
+        createProduct({
+          name,
+          desc,
+          price: parseInt(price),
+          stock: parseInt(stock),
+          image,
+          storeId: storeData.id,
+          storeName: storeData.name,
+          uid
+        });
         useCallToast(toast, "Produk berhasil ditambahkan", `${name} ditambahkan ke daftar produk`, "success");
         resetForm();
       }
@@ -63,9 +65,16 @@ const Form = ({ formTitle, productData, storeData }) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        <Button type="button" colorScheme="green">
-          {formTitle}
-        </Button>
+        {formTitle === "Tambah" ? (
+          <button className="btn ml-auto text-[#001a9d] text-xs" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+            </svg>
+            Tambah Produk
+          </button>
+        ) : (
+           <p className="font-bold text-blue-600  hover:underline cursor-pointer">{formTitle}</p> 
+        )}
       </Dialog.Trigger>
 
       <Dialog.Content style={{ maxWidth: 450 }}>
@@ -120,11 +129,7 @@ const Form = ({ formTitle, productData, storeData }) => {
               </Button>
             </Dialog.Close>
             <Dialog.Close>
-              <button
-                type="submit"
-                className={`bg-[#edf2f7] font-semibold px-3 rounded ${checkIsFormError() && !productData ? "cursor-not-allowed opacity-50" : ""}`}
-                disabled={checkIsFormError() && !productData ? true : false}
-              >
+              <button type="submit" className={`bg-[#edf2f7] font-semibold px-3 rounded ${checkIsFormError() && !productData ? "cursor-not-allowed opacity-50" : ""}`} disabled={checkIsFormError() && !productData ? true : false}>
                 Save
               </button>
             </Dialog.Close>

@@ -1,6 +1,6 @@
 import Form from "./Form";
 
-const AddProductBtn = ({storeData}) => {
+const AddProductBtn = ({ storeData }) => {
   return <Form formTitle="Tambah" storeData={storeData}/>;
 };
 

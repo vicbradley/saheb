@@ -10,7 +10,7 @@ export const useFetchToken = async (tokenValue) => {
     },
   });
 
-  const token = await queryClient.fetchQuery({ queryKey: ["token"], queryFn: () => axiosInstance.get(`/consult/tokens/${tokenValue}`).then((res) => res.data) });
+  const token = await queryClient.fetchQuery({ queryKey: ["token"], queryFn: () => axiosInstance.get(`/consult/token/${tokenValue}`).then((res) => res.data) });
 
   return token;
 };

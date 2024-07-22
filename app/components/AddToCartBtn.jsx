@@ -3,20 +3,23 @@ import { getUserInfo } from "../logic/getUserInfo";
 import { useToast } from "@chakra-ui/react";
 import SignInPopUp from "./SignInPopUp";
 import { useAddCartItem } from "../features/cart/useAddCartItem";
-import useCallToast from "../features/helper/useCallToast";
 
-const AddToCartBtn = ({productData}) => {
+const AddToCartBtn = ({ productData }) => {
   const { stock, storeId } = productData;
   const { isAuth } = useAuthContext();
   const toast = useToast();
-  const {store,uid} = getUserInfo();
+  const { store, uid } = getUserInfo();
 
-  const {mutate: addCartItem} = useAddCartItem(uid);
+  const { mutate: addCartItem } = useAddCartItem(uid);
 
   const handleAddToCart = async (e) => {
     e.stopPropagation();
     addCartItem(productData);
-    useCallToast(toast, "Success", "Produk ditambah ke keranjang", "success");
+    toast({
+      status: "success",
+      title: "Success",
+      description: "Produk ditambah ke keranjang",
+    });
   };
 
   const checkIsProductEligible = () => {
@@ -29,7 +32,7 @@ const AddToCartBtn = ({productData}) => {
     }
 
     return true;
-  }
+  };
 
   if (!isAuth) {
     return <SignInPopUp text="Add To Cart" />;
@@ -37,11 +40,13 @@ const AddToCartBtn = ({productData}) => {
 
   return (
     <div>
-      <button 
-      onClick={handleAddToCart}
-      className={`text-white  lg:w-auto bg-[#001a9d]  focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm lg:text-md px-3 lg:px-5 py-2.5 text-center ${!checkIsProductEligible() ? "bg-[#d5d6d9]" : "hover:bg-blue-800"}`}  disabled={!checkIsProductEligible() ? true : false}>
-      Add to cart
-    </button>
+      <button
+        onClick={handleAddToCart}
+        className={`text-white  lg:w-auto bg-[#001a9d]  focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm lg:text-md px-3 lg:px-5 py-2.5 text-center ${!checkIsProductEligible() ? "bg-[#d5d6d9]" : "hover:bg-blue-800"}`}
+        disabled={!checkIsProductEligible() ? true : false}
+      >
+        Add to cart
+      </button>
     </div>
   );
 };

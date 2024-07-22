@@ -10,7 +10,6 @@ import { useFetchToken } from "../features/consult/useFetchToken";
 import { useCreateChatroom } from "../features/chatroom/useCreateChatroom";
 import { useFetchChatroomByParticipants } from "../features/chatroom/useFetchChatroomByParticipants";
 import { useEditChatroomExpiry } from "../features/chatroom/useEditChatroomExpiry";
-import useCallToast from "../features/helper/useCallToast";
 moment().format();
 
 const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
@@ -33,7 +32,11 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
 
   const { mutate: createChatroom } = useCreateChatroom({
     onSuccess: (response) => {
-      useCallToast(toast, "Success", "Token yang anda masukkan benar silahkan berkonsultasi dengan dokter", "success")
+      toast({
+        status: "success",
+        title: "Token Valid",
+        description: "Token yang anda masukkan benar silahkan berkonsultasi dengan dokter",
+      });
 
       push(`chat/${response.data.id}`);
     },
@@ -43,14 +46,17 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
     onSuccess: () => {
       setIsChatExpired(false);
 
-      useCallToast(toast, "Success", "Sesi konsultasi diperpanjang", "success")
+      toast({
+        status: "success",
+        title: "Token Valid",
+        description: "Sesi konsultasi berhasil diperpanjang",
+      });
 
       setTimeout(() => {
         window.location.reload();
       }, 3000);
     },
   });
-
 
   const checkToken = async () => {
     try {
@@ -73,7 +79,11 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
         });
       }
     } catch (error) {
-      useCallToast(toast, "Error", error.response.data, "error");
+      toast({
+        status: "error",
+        title: "Error",
+        description: error.response.data,
+      });
     }
   };
 

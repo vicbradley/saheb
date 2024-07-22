@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import { useToast, Button, InputGroup, Input, InputLeftAddon } from "@chakra-ui/react";
 import { getUserInfo } from "@/app/logic/getUserInfo";
-import useCallToast from "@/app/features/helper/useCallToast";
 import { useFormik } from "formik";
 import { useFetchUser } from "@/app/features/user/useFetchUser";
 import Loading from "@/app/components/Loading";
@@ -59,7 +58,11 @@ export default function EditShippingData() {
 
       // Manual validation
       if (!newAddress || !newPhoneNumber) {
-        useCallToast(toast, "Error", "All fields are required", "error");
+        toast({
+          status: "error",
+          title: "Form Invalid",
+          description: "Lengkapi alamat pengantaran dan nomor telepon",
+        });
         return;
       }
 
@@ -71,7 +74,11 @@ export default function EditShippingData() {
         newPhoneNumber: formattedPhoneNumberForDB,
       });
 
-      useCallToast(toast, "Success", "Profile berhasil diupdate", "success");
+      toast({
+        status: "success",
+        title: "Success",
+        description: "Profile berhasil diupdate",
+      });
     },
   });
 

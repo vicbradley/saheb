@@ -8,7 +8,6 @@ import isLowercase from "validator/lib/isLowercase";
 import { useAuthContext } from "../context/Auth";
 import { Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import { useToast, Button } from "@chakra-ui/react";
-import useCallToast from "../features/helper/useCallToast";
 import { useFormik } from "formik";
 import { useCreateStore } from "../features/store/useCreateStore";
 import FileUpload from "../components/FileUpload";
@@ -20,7 +19,6 @@ const StoreRegister = () => {
   const { push } = router;
 
   const toast = useToast();
-
 
   const { mutate: createStore } = useCreateStore({
     onSuccess: () => {
@@ -36,12 +34,20 @@ const StoreRegister = () => {
       localStorage.setItem("auth", JSON.stringify(updatedLocalStorage));
       setIsLocalStorageUpdated(true);
 
-      useCallToast(toast, "Success", "Toko berhasil dibuat", "success");
+      toast({
+        status: "success",
+        title: "Success",
+        description: "Toko berhasil dibuat",
+      });
 
       push(`${formik.values.storeId}/dashboard`);
     },
     onError: (error) => {
-      useCallToast(toast, "Error", error.response.data, "error");
+      toast({
+        status: "error",
+        title: "Error",
+        description: error.response.data,
+      });
     },
   });
 

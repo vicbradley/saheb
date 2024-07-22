@@ -3,7 +3,6 @@ import { Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import { useToast, Button } from "@chakra-ui/react";
 import { useAuthContext } from "@/app/context/Auth";
 import { getUserInfo } from "@/app/logic/getUserInfo";
-import useCallToast from "@/app/features/helper/useCallToast";
 import { useFormik } from "formik";
 import { useEditUser } from "@/app/features/user/useEditUser";
 import FileUpload from "@/app/components/FileUpload";
@@ -57,7 +56,11 @@ export default function EditProfile() {
 
       localStorage.setItem("auth", JSON.stringify(updatedLocalStorage));
 
-      useCallToast(toast, "Success", "Profile berhasil diupdate", "success");
+      toast({
+        status: "success",
+        title: "Success",
+        description: "Profile berhasil diupdate",
+      });
 
       setIsLocalStorageUpdated(isLocalStorageUpdated + 1);
     },

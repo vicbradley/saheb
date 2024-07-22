@@ -2,7 +2,7 @@
 import Loading from "@/app/components/Loading";
 import { useFetchTransactionById } from "@/app/features/transaction/useFetchTransactionById";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { data: transaction, isLoading } = useFetchTransactionById(params.transactionId);
 
   if (isLoading) return <Loading />;
@@ -83,4 +83,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

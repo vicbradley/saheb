@@ -5,7 +5,6 @@ import { useToast, NumberInput, NumberInputField, NumberInputStepper, NumberIncr
 import { useFormik } from "formik";
 import { useCreateProduct } from "@/app/features/store/useCreateProduct";
 import { useEditProduct } from "@/app/features/store/useEditProduct";
-import useCallToast from "@/app/features/helper/useCallToast";
 import FileUpload from "@/app/components/FileUpload";
 import { getUserInfo } from "@/app/logic/getUserInfo";
 
@@ -39,7 +38,12 @@ const Form = ({ formTitle, productData, storeData }) => {
           storeName: storeData.name,
           uid,
         });
-        useCallToast(toast, "Produk berhasil diperbarui", `${name} berhasil diperbarui`, "success");
+
+        toast({
+          status: "success",
+          title: "Produk berhasil diperbarui",
+          description: `${name} berhasil diperbarui`,
+        })
       } else {
         createProduct({
           name,
@@ -51,7 +55,12 @@ const Form = ({ formTitle, productData, storeData }) => {
           storeName: storeData.name,
           uid
         });
-        useCallToast(toast, "Produk berhasil ditambahkan", `${name} ditambahkan ke daftar produk`, "success");
+
+        toast({
+          status: "success",
+          title: "Produk berhasil ditambahkan",
+          description: `${name} ditambahkan ke daftar produk`,
+        })
         resetForm();
       }
     },

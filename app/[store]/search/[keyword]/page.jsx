@@ -6,7 +6,7 @@ import useSearchStoreProducts from "@/app/features/store/useSearchStoreProducts"
 import SearchProducts from "@/app/products/SearchProducts";
 import React from "react";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const {store, keyword} = params;
   const { data: products, isLoading: productsIsLoading } = useSearchStoreProducts(store, keyword);
   const { data: storeData, isLoading: storeDataIsLoading } = useFetchStoreData(store);
@@ -54,4 +54,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

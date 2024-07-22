@@ -1,9 +1,7 @@
 "use client";
-import { useCartContext } from "@/app/context/Cart";
 import { useDeleteCartItem } from "@/app/features/cart/useDeleteCartItem";
 import { useOrderItems } from "@/app/features/cart/useOrderItems";
 import { generateTransactionId } from "@/app/features/helper/generateTransactionId";
-import useCallToast from "@/app/features/helper/useCallToast";
 import { axiosInstance } from "@/app/lib/axiosInstance";
 import { getUserInfo } from "@/app/logic/getUserInfo";
 import { useToast } from "@chakra-ui/react";
@@ -49,7 +47,11 @@ const Products = ({ products, storeId, storeName }) => {
     const userData = (await axiosInstance.get(`/users/${uid}`)).data;
     const transactionId = generateTransactionId();
     if (!userData.address || !userData.phoneNumber) {
-      useCallToast(toast, "Invalid", "Tambahkan alamat pengiriman dan nomor telepon terlebih dahulu pada menu profile", "error");
+      toast({
+        status: "error",
+        title: "Lengkapi Data Pengiriman",
+        description: "Tambahkan alamat pengiriman dan nomor telepon terlebih dahulu pada menu profile",
+      })
       return;
     }
 

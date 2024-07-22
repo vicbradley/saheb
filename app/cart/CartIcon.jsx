@@ -5,8 +5,6 @@ import { useCartContext } from "../context/Cart";
 import { signInWithGoogle } from "../auth/signInWithGoogle";
 import { useEffect } from "react";
 import { useFetchCartItems } from "../features/cart/useFetchCartItems";
-import { auth } from "@/src/firebase/config";
-import { signOut } from "firebase/auth";
 
 const CartIcon = () => {
   const { push } = useRouter();

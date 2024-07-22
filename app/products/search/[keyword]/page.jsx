@@ -5,7 +5,7 @@ import React from "react";
 import SearchProducts from "../../SearchProducts";
 import Loading from "@/app/components/Loading";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { data: products, isLoading } = useSearchProducts(params.keyword);
 
   const renderProducts = () => {
@@ -41,4 +41,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

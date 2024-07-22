@@ -1,4 +1,12 @@
-const TransactionHistory = ({transactions}) => {
+import { useRouter } from "next/navigation";
+
+const TransactionHistory = ({ transactions }) => {
+  const router = useRouter();
+
+  const handleOnClick = (transactionId) => {
+    router.push(`transactions/${transactionId}`);
+  };
+
   return (
     <div>
       {transactions.length > 0 && (
@@ -40,7 +48,12 @@ const TransactionHistory = ({transactions}) => {
                     <td colSpan={2}>Rp. {Intl.NumberFormat("id-ID").format(transaction.totalPrice)}</td>
                     <td colSpan={2}>{transaction.storeName}</td>
                     <td>
-                      <span className="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded">{transaction.status}</span>
+                      <a
+                        className={`bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded ${transaction.status === "Selesai" ? "cursor-pointer hover:underline" : ""}`}
+                        onClick={() => transaction.status === "Selesai" && handleOnClick(transaction.transactionId)}
+                      >
+                        {transaction.status} {transaction.status === "Selesai" && "(Klik untuk lihat detail)"}
+                      </a>
                     </td>
                   </tr>
                 ))}

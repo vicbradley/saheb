@@ -25,7 +25,7 @@ const Chatroom = ({ params }) => {
 
   useListenChatroom(chatroomId, setMessages, setIsMessagesLoading);
 
-  const { uid, username } = getUserInfo();
+  const { uid } = getUserInfo();
 
   const formik = useFormik({
     initialValues: {
@@ -45,10 +45,18 @@ const Chatroom = ({ params }) => {
 
       const now = new Date();
 
+      const encryptionStart = performance.now();
+      console.log({ encryptionStart });
+      const encryptedText = encryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY, newMessage);
+      const encryptionEnd = performance.now();
+      console.log({ encryptionEnd });
+      const encryptionTime = encryptionEnd - encryptionStart;
+      console.log({ encryptionTime });
+
       const newMessageObj = {
         senderId: uid,
         createdAt: date.format(now, "HH:mm:ss"),
-        text: encryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY, newMessage),
+        text: encryptedText,
         isRead: false,
       };
 
@@ -94,13 +102,13 @@ const Chatroom = ({ params }) => {
         {messages.map((message, index) => (
           <div key={index} className={`chat ${message.senderId === uid ? "chat-end" : "chat-start"}`}>
             <div className="chat-bubble bg-base-300 text-slate-800 font-semibold mt-3 flex flex-col justify-center">
-              {isImageLink(decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY ,message.text)) ? (
+              {isImageLink(decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY, message.text)) ? (
                 <div className="w-[70vw] h-[50vh] lg:w-[40vw] lg:h-[65vh]">
-                  <img src={decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY ,message.text)} alt="Chat Image" className="w-[100%] h-[100%] mx-auto object-contain rounded" />
+                  <img src={decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY, message.text)} alt="Chat Image" className="w-[100%] h-[100%] mx-auto object-contain rounded" />
                 </div>
               ) : (
                 <div className="message-text mr-6" style={{ maxWidth: "55vw", wordBreak: "break-word" }}>
-                  {decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY ,message.text)}
+                  {decryptMessage(process.env.NEXT_PUBLIC_RJ4_KEY, message.text)}
                 </div>
               )}
               <span className="text-xs text-slate-500 font-thin flex justify-end">{message.createdAt}</span>

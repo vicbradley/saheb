@@ -1,27 +1,36 @@
 export const encryptMessage = (key, str) => {
-  var s = [],
-    j = 0,
-    x,
+  const s = [];
+  let j = 0,
     res = "";
-  for (var i = 0; i < 256; i++) {
+
+  // Key Scheduling Algorithm (KSA)
+  for (let i = 0; i < 256; i++) {
     s[i] = i;
   }
-  for (i = 0; i < 256; i++) {
+
+  for (let i = 0; i < 256; i++) {
     j = (j + s[i] + key.charCodeAt(i % key.length)) % 256;
-    x = s[i];
-    s[i] = s[j];
-    s[j] = x;
+    [s[i], s[j]] = [s[j], s[i]]; // Swap
   }
-  i = 0;
+
+  // Pseudo-Random Generation Algorithm (PRGA)
+  let i = 0;
   j = 0;
-  for (var y = 0; y < str.length; y++) {
+  for (let y = 0; y < str.length; y++) {
     i = (i + 1) % 256;
     j = (j + s[i]) % 256;
-    x = s[i];
-    s[i] = s[j];
-    s[j] = x;
-    res += String.fromCharCode(str.charCodeAt(y) ^ s[(s[i] + s[j]) % 256]);
+    [s[i], s[j]] = [s[j], s[i]]; // Swap
+
+    // RC4+ modification: additional swap and XOR operation
+    let t = (s[i] + s[j]) % 256;
+    [s[i], s[t]] = [s[t], s[i]]; // Additional swap
+
+    // Double XOR
+    let k = s[(s[i] + s[j]) % 256] ^ s[(s[t] + s[i]) % 256];
+    res += String.fromCharCode(str.charCodeAt(y) ^ k);
   }
+
+  console.log({encryptedText: res});
 
   return res;
 };

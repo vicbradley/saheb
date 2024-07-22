@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
-  // baseURL: "https://saheb-api.vercel.app/",
+  // baseURL: "http://localhost:5000",
+  baseURL: "https://saheb-api.vercel.app/",
 });
 
 axiosInstance.interceptors.request.use(

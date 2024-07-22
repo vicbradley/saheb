@@ -12,7 +12,7 @@ export const checkCart = async () => {
     return null;
   } else {
     await setDoc(docRef, {
-      PaymentProcess: [],
+      paymentProcess: [],
       stores: [],
     });
   }

@@ -4,9 +4,9 @@ import { useToast, Button, InputGroup, Input, InputLeftAddon } from "@chakra-ui/
 import { getUserInfo } from "@/app/logic/getUserInfo";
 import useCallToast from "@/app/features/helper/useCallToast";
 import { useFormik } from "formik";
-import { useEditUser } from "@/app/features/user/useEditUser";
 import { useFetchUser } from "@/app/features/user/useFetchUser";
 import Loading from "@/app/components/Loading";
+import { useEditUserShippingData } from "@/app/features/user/useEditUserShippingData";
 
 const formatPhoneNumber = (phoneNumber) => {
   // Remove all non-digit characters
@@ -47,7 +47,7 @@ export default function EditShippingData() {
   const { data: userData, isLoading } = useFetchUser(uid);
 
   const toast = useToast();
-  const { mutate: editUser } = useEditUser(uid);
+  const {mutate: editUserShippingData} = useEditUserShippingData(uid);
 
   const formik = useFormik({
     initialValues: {
@@ -66,7 +66,7 @@ export default function EditShippingData() {
       // Format phone number for database
       const formattedPhoneNumberForDB = formatPhoneNumberForDatabase(newPhoneNumber);
 
-      editUser({
+      editUserShippingData({
         newAddress,
         newPhoneNumber: formattedPhoneNumberForDB,
       });

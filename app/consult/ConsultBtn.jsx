@@ -1,31 +1,42 @@
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Button, FormControl, FormLabel, Input, useToast } from "@chakra-ui/react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  useToast,
+} from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { useAuthContext } from "../context/Auth";
 import SignInPopUp from "../components/SignInPopUp";
 import { getUserInfo } from "../logic/getUserInfo";
 import { useRouter } from "next/navigation";
 import { useMessageContext } from "../context/Message";
-import moment from "moment";
-import { useFetchToken } from "../features/consult/useFetchToken";
 import { useCreateChatroom } from "../features/chatroom/useCreateChatroom";
-import { useFetchChatroomByParticipants } from "../features/chatroom/useFetchChatroomByParticipants";
 import { useEditChatroomExpiry } from "../features/chatroom/useEditChatroomExpiry";
-moment().format();
+import { axiosInstance } from "../lib/axiosInstance";
+import { QueryClient } from "@tanstack/react-query";
 
 const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
-  const [inputValue, setInputValue] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const { setIsChatExpired } = useMessageContext();
   const { isAuth } = useAuthContext();
 
   const { username, email, uid, profilePicture } = getUserInfo();
-
   const { chatPartnerId, chatPartnerUsername, chatPartnerProfilePicture, chatPartnerPricing } = chatPartnerData;
 
   const toast = useToast();
-
   const { push } = useRouter();
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef(null);
   const finalRef = useRef(null);
@@ -37,7 +48,6 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
         title: "Token Valid",
         description: "Token yang anda masukkan benar silahkan berkonsultasi dengan dokter",
       });
-
       push(`chat/${response.data.id}`);
     },
   });
@@ -45,22 +55,41 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
   const { mutate: editChatroomExpiry } = useEditChatroomExpiry({
     onSuccess: () => {
       setIsChatExpired(false);
-
       toast({
         status: "success",
         title: "Token Valid",
         description: "Sesi konsultasi berhasil diperpanjang",
       });
-
       setTimeout(() => {
         window.location.reload();
       }, 3000);
     },
   });
 
-  const checkToken = async () => {
+  const fetchToken = async (tokenValue) => {
+    const queryClient = new QueryClient({
+      defaultOptions: {
+        queries: {
+          staleTime: Infinity,
+        },
+      },
+    });
     try {
-      await useFetchToken(inputValue);
+      const token = await queryClient.fetchQuery({
+        queryKey: ["token"],
+        queryFn: () => axiosInstance.get(`/consult/token/${tokenValue}`).then((res) => res.data),
+      });
+      return token;
+    } catch (error) {
+      throw new Error(error.response?.data || "An error occurred");
+    }
+  };
+
+  const checkToken = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      await fetchToken(inputValue);
 
       if (isInChatRoom) {
         editChatroomExpiry(chatroomId);
@@ -79,11 +108,14 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
         });
       }
     } catch (error) {
+      setError(error.message);
       toast({
         status: "error",
         title: "Error",
-        description: error.response.data,
+        description: error.message,
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -91,15 +123,13 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
     const encodedUrlText = encodeURIComponent(
       `Saheb\n=====\nUID: ${uid}\nUsername: ${username}\nEmail:${email}\n=====\nPembelian token senilai Rp.${Intl.NumberFormat("id-ID").format(parseInt(chatPartnerPricing))} untuk berkonsultasi dengan ${chatPartnerUsername}`
     );
-
     const whatsappLink = `https://wa.me/6285656736455?text=${encodedUrlText}`;
     window.open(whatsappLink, "_blank");
   };
 
   const openModal = async () => {
     try {
-      const chatroomData = await useFetchChatroomByParticipants(uid, chatPartnerId);
-
+      const { data: chatroomData } = await axiosInstance.get(`/chatrooms/participants?mainUserId=${uid}&chatPartnerId=${chatPartnerId}`);
       push(`chat/${chatroomData.id}`);
     } catch (error) {
       onOpen();
@@ -139,7 +169,11 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Token (8 Digit Angka)</FormLabel>
-              <Input onChange={(e) => setInputValue(e.target.value)} ref={initialRef} placeholder="cth: 12345678" />
+              <Input
+                onChange={(e) => setInputValue(e.target.value)}
+                ref={initialRef}
+                placeholder="cth: 12345678"
+              />
             </FormControl>
           </ModalBody>
 
@@ -147,8 +181,7 @@ const ConsultBtn = ({ chatPartnerData, isInChatRoom, chatroomId }) => {
             <Button onClick={buyToken} mr={3}>
               Beli Token
             </Button>
-
-            <Button onClick={checkToken} colorScheme="blue">
+            <Button onClick={checkToken} colorScheme="blue" isLoading={isLoading}>
               Enter
             </Button>
           </ModalFooter>

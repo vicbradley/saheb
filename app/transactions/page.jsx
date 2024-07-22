@@ -7,7 +7,7 @@ import { useFetchTransactionsByUserId } from "../features/transaction/useFetchTr
 import { getUserInfo } from "../logic/getUserInfo";
 import { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const { data: transactions, isLoading: transactionsIsLoading } = useFetchTransactionsByUserId(getUserInfo().uid);
   const { cart } = useCartContext();
   const [cartIsLoading, setCartIsLoading] = useState(true);
@@ -33,4 +33,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

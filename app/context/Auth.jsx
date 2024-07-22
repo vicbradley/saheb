@@ -5,22 +5,15 @@ import { createContext, useContext, useState, useEffect } from "react";
 const AuthContext = createContext({});
 
 export const AuthContextProvider = ({ children }) => {
-  useEffect(() => {
-    const isInClient = () => {
-      return typeof window !== "undefined" ? true : false;
-    }
-
-    const checkIsUserLogin = isInClient() ? localStorage.getItem("auth") ? true : false : false;
-
-    setIsAuth(checkIsUserLogin)
-  },[])
-
-
-  const [isAuth, setIsAuth] = useState(null);
-
-  // const [isAuth, setIsAuth] = useState(checkIsUserLogin ? true : false);
-
+  const [isAuth, setIsAuth] = useState(false); // Inisialisasi dengan false
   const [isLocalStorageUpdated, setIsLocalStorageUpdated] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") { // pastikan kita di sisi klien
+      const checkIsUserLogin = localStorage.getItem("auth") ? true : false;
+      setIsAuth(checkIsUserLogin);
+    }
+  }, []);
 
   return <AuthContext.Provider value={{ isAuth, setIsAuth, isLocalStorageUpdated, setIsLocalStorageUpdated }}>{children}</AuthContext.Provider>;
 };

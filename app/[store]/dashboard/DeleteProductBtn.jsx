@@ -7,6 +7,7 @@ import { getUserInfo } from "@/app/logic/getUserInfo";
 const DeleteProductBtn = ({ storeId, productId, productName }) => {
   const toast = useToast();
   const { mutate: deleteProduct } = useDeleteProduct(storeId, productId);
+  const callToast = useCallToast();
 
   const handleDelete = async () => {
     deleteProduct({
@@ -14,7 +15,7 @@ const DeleteProductBtn = ({ storeId, productId, productName }) => {
       uid: getUserInfo().uid
     });
 
-    useCallToast(toast, "Produk berhasil dihapus", `${productName} berhasil dihapus dari daftar produk`, "success");
+    callToast(toast, "Produk berhasil dihapus", `${productName} berhasil dihapus dari daftar produk`, "success");
   };
 
   return (

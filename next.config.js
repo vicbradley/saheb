@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: false,
   optimizeFonts: false,
   images: {
-    domains: ["firebasestorage.googleapis.com", "foodbuy-id.s3.ap-southeast-3.amazonaws.com", "images.tokopedia.net"],
+    domains: ["firebasestorage.googleapis.com", "foodbuy-id.s3.ap-southeast-3.amazonaws.com", "images.tokopedia.net", "lh3.googleusercontent.com"],
   },
 
   webpack: (config, { isServer, buildId, dev, webpack }) => {

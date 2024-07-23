@@ -16,12 +16,12 @@ export default function StoreDashboard({ params }) {
     <>
       <div className="bg-[#001a9d] min-h-[20vh] lg:min-h-[25vh] w-[98.5%] flex items-center mx-auto rounded-md p-3">
         <div className="avatar">
-          <div className="w-16 sm:w-16 lg:w-24 rounded-full">
+          <div className="w-16 sm:w-20 lg:w-24 rounded-full">
             <img src={storeData.profilePicture} alt="Profile" />
           </div>
         </div>
-        <div className="py-4 ml-4 flex-grow">
-          <p className="text-white text-sm lg:text-2xl font-bold">{storeData.name}</p>
+        <div className="py-4 ml-2 flex-grow">
+          <p className="text-white text-md lg:text-2xl font-bold">{storeData.name}</p>
         </div>
         <AddProductBtn storeData={storeData} />
       </div>

@@ -30,6 +30,12 @@ const TransactionHistory = ({ transactions }) => {
                   <th>Nama Toko</th>
                   <th></th>
                   <th>Status</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -47,7 +53,7 @@ const TransactionHistory = ({ transactions }) => {
                     </td>
                     <td colSpan={2}>Rp. {Intl.NumberFormat("id-ID").format(transaction.totalPrice)}</td>
                     <td colSpan={2}>{transaction.storeName}</td>
-                    <td>
+                    <td colSpan={7}>
                       <a
                         className={`bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded ${transaction.status === "Selesai" ? "cursor-pointer hover:underline" : ""}`}
                         onClick={() => transaction.status === "Selesai" && handleOnClick(transaction.transactionId)}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AddToCartBtn from "./AddToCartBtn";
 import { useRouter } from "next/navigation";
 
@@ -20,8 +21,8 @@ const Product = (props) => {
 
   return (
     <div className="w-[80%] h-[60vh] lg:h-[80vh] mt-10 lg:p-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className="h-[60%] lg:h-[65%] flex justify-center items-center" onClick={() => push(`${storeId}/product/${id}`)}>
-        <img className="p-8 mx-auto w-[100%] h-[100%] rounded-t-lg object-cover cursor-pointer" src={image} alt={name} />
+      <div className="h-[60%] lg:h-[60%] p-8 flex justify-center items-center rounded-t-lg cursor-pointer" onClick={() => push(`${storeId}/product/${id}`)}>
+        <Image src={image} alt={name} width={250} height={100} />
       </div>
       <div className="px-5">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{trimTitle(name)}</h5>
